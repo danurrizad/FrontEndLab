@@ -1,11 +1,29 @@
 import React from "react";
 import './Header.css';
+import {Navbar, Container, Nav} from 'react-bootstrap';
+import logoImage from "../assets/images/logo-ugm.png"
 
 export default function Header(){
     return (
-        <div class="header">
-            <img src="images\logo-ugm.png" alt="logo-ugm"/>
-            <h1>Departemen Teknik Elektro <br></br>dan Teknologi Informasi<br></br>Universitas Gadjah Mada</h1>
+        <div>
+            <Navbar className="header">
+                <Container fluid>
+                    <Navbar.Brand className="wrappedHeader">
+                        <Nav className="logo">
+                            <img className="logoImage" width="60px" height="60px" src={logoImage} alt="logo-ugm" />
+                            <Nav className="titleNav">
+                                Departemen Teknik Elektro dan <br></br> Teknologi Informasi <br></br> Universitas Gadjah Mada
+                            </Nav> 
+                        </Nav>
+                        <Nav className="searchBar">
+                            <input className="searchBox" placeholder="Search" activeclassName="active"/>
+                            <button className="buttonSearch">Search</button>
+                            
+                        </Nav>
+                    </Navbar.Brand>
+                </Container>
+
+            </Navbar>
         </div>
     )
 }
