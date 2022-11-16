@@ -65,11 +65,11 @@
   .sidenav{
     background: #6fb3b8;
     color:white;
-    height: 100vh;
+    height: 89vh;
     width: 300px;
     transition: all 0.5s;
-
-
+    border-right-style: groove;
+    border-color: white;
   }
   
   .top_section{
@@ -78,8 +78,8 @@
     padding: 20px 15px;
   }
   
-  .logo{
-    font-size: 30px;
+  .userSidebar{
+    font-size: 25px;
   }
   
   .bars{
@@ -94,6 +94,7 @@
     padding: 10px 15px;
     gap: 15px;
     text-decoration: none;
+    background-color: none;
   }
   
   .active{
@@ -109,6 +110,23 @@
   .icon, .link_text{
     font-size: 20px;
   
+  }
+
+  .linkBottom{
+    color: white;
+    padding: 10px 15px;
+    gap: 15px;
+    text-decoration: none;
+    background-color: none;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+  }
+  
+
+  .linkBottom:hover{
+    background-color: none;
+    color:#388087;
   }
   
   

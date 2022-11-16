@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import './Sidenav.css'
 import {NavLink} from 'react-router-dom'
-import {FaCalendarAlt, FaUserAlt, FaDiceD6, FaBars} from "react-icons/fa"
+import {FaCalendarAlt, FaUserAlt, FaDiceD6, FaBars, FaHome, FaSignOutAlt} from "react-icons/fa"
+import namaUser from './Users'
 
 
 
@@ -11,6 +12,11 @@ const Sidenav = ({children}) => {
     const menuItem =[
         {
             path:'/',
+            name:'Home',
+            icon:<FaHome/>
+        },
+        {
+            path:'/profile',
             name:'Profile',
             icon:<FaUserAlt/>
         },
@@ -30,8 +36,8 @@ const Sidenav = ({children}) => {
        <div className='containerNav'>
          <div style={{width: isOpen ? "300px" : "50px"}} className="sidenav">
              <div className="top_section">
-                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>LOGO</h1>
-                 <div style={{marginLeft: isOpen ? "100px" : "0"}} className="bars">
+                 <h1 style={{display: isOpen ? "block" : "none"}} className='userSidebar'>Hi, {<namaUser/>}</h1>
+                 <div style={{marginLeft: isOpen ? "200px" : "0"}} className="bars">
                     <FaBars onClick={toggle}/>
                  </div>
              </div>
@@ -41,8 +47,12 @@ const Sidenav = ({children}) => {
                         <div className="icon">{item.icon}</div>
                         <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
                     </NavLink>
-                ))
+                )) 
              }
+             <NavLink to={'/logout'} className="linkBottom">
+                <div className="icon">{<FaSignOutAlt/>}</div>
+                <div style={{display: isOpen ? "block" : "none"}} className="link_text">{'Logout'}</div>
+             </NavLink>
          </div>
          <main>{children}</main>
        </div>

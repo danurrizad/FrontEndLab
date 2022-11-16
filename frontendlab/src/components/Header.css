@@ -2,24 +2,59 @@
     background-image: url("../assets/images/background-gedung.png");
     padding: 10px;
     background-color: #388087;
-    display:flex;
 }
 
-.logoImage{
-    width: 60px;
-    height: 60px;
-    
-    
-}
+
 
 .titleNav{
     font-size: 11px;
-    font-weight: 100;
     color: #f6f6f2;
-    margin-top: -55px;
-    margin-left: 65px;
+    margin-top: 5px;
+    margin-left: 5px;
     font-weight: 500;
     
+}
+
+.wrappedHeader{
+    justify-content: space-between;
+    display: flex;
+}
+
+.searchBar{
+    position: absolute;
+    right:0;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.searchBox{
+    margin-right: 5px;
+    border-radius: 10px;
+    border: none;
+    padding: 6px 12px;
+}
+
+
+
+.active{
+    border-color: #388087;
+}
+
+
+.buttonSearch{
+    text-decoration: none;
+    border: none;
+    background-color: #f6f6f2;
+    width: 150px;
+    color:#388087;
+    font-weight: 100;
+    border-radius: 10px;
+}
+
+.buttonSearch:hover{
+    background-color: #badfe7;
+    color: white;
+    font-weight: 300px;
 }
 
 
