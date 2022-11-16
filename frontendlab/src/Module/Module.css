@@ -1,8 +1,35 @@
-.module{
-    background-color: green;
-    height: 100vh;
+.module-heading{
+    text-align: center;
+    padding: 4rem 0 2rem 0;
 }
 
-.module h1{
-    text-align: center;
+.module-container{
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding-bottom: 5rem;
+}
+
+.module-card{
+    background: #6fb3b8;
+    padding: 1.2rem 1rem;
+}
+
+.module-title{
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.module-details p{
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.mo-btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
 }
