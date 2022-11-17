@@ -1,0 +1,26 @@
+.crud{
+    margin-top: 100px;
+}
+
+input{
+    width: 150%;
+}
+
+.btnAdd, .btnUpdate, .btnDelete{
+    width: 150px;
+    color: white;
+    background-color: #badfe7;
+    border: none;
+    border-radius:50px;
+    padding: 5px 3px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.buttonsModule{
+    justify-content:space-around;
+}
+
+.tableAddModule td{
+    border:0;
+}
