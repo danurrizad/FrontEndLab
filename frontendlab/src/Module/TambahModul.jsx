@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import './TambahModul.css'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function TambahModul(){
         const [namaModul, setnamaModul] = useState("");
@@ -32,14 +33,14 @@ function TambahModul(){
         };
     
     return(
-        <div className="crud" onSubmit={saveModule}>
+        <div className="crud">
                     <h5>Add Module</h5>
                     <table className="tableAddModule">
                         <tr>
                             <td><label>Nama Modul :</label></td>
                             <td><input 
                             className="inputNama"
-                            type={text}
+                            type="text"
                             value={namaModul}
                             onChange={(e) => setnamaModul(e.target.value)}
                             placeholder="Masukkan Nama Modul"></input></td>
@@ -48,7 +49,7 @@ function TambahModul(){
                             <td><label>Batch :</label></td>
                             <td><input 
                             className="inputBatch"
-                            type={number}
+                            type="number"
                             value={batch}
                             onChange={(e) => setBatch(e.target.value)}
                             placeholder="Masukkan Batch"></input></td>
@@ -57,7 +58,7 @@ function TambahModul(){
                             <td><label>Hari :</label></td>
                             <td><input 
                             className="inputDay"
-                            type={day}
+                            type="number"
                             value={hari}
                             onChange={(e) => setHari(e.target.value)}
                             placeholder="Masukkan Hari dalam angka"></input></td>
@@ -66,7 +67,7 @@ function TambahModul(){
                             <td><label>Tempat :</label></td>
                             <td><input 
                             className="inputTempat"
-                            type={text}
+                            type="text"
                             value={tempat}
                             onChange={(e) => setTempat(e.target.value)}
                             placeholder="Masukkan Tempat"></input></td>
@@ -75,7 +76,7 @@ function TambahModul(){
                             <td><label>Tanggal :</label></td>
                             <td><input 
                             className="inputTanggal"
-                            type={date}
+                            type="date"
                             value={tanggal}
                             onChange={(e) => setTanggal(e.target.value)}
                             placeholder="Masukkan Tanggal Batch Modul"></input></td>
@@ -84,14 +85,14 @@ function TambahModul(){
                             <td><label>Kuota :</label></td>
                             <td><input 
                             className="inputKuota"
-                            type={number}
+                            type="number"
                             value={kuota}
                             onChange={(e) => setKuota(e.target.value)}
                             placeholder="Masukkan Kuota Batch"></input></td>
                         </tr>
                     </table>
                     <div className="buttonsModule">
-                        <button className="btnAdd" type="submit">Add Module</button>
+                        <button className="btnAdd" type="submit" onSubmit={saveModule}>Add Module</button>
                         <button className="btnUpdate">Update Module</button>
                         <button className="btnDelete">Delete Module</button>
                     </div>
