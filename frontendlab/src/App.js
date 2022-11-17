@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import Header from './components/Header'
 import Sidenav from './components/Sidenav';
-import Profile from './Profile/Profile';
+import Profil from './Profile/Profil';
 import Module from './Module/Module';
 import TambahModul from './Module/TambahModul';
 import Schedule from './Schedule/Schedule';
@@ -20,8 +20,7 @@ const App = () => {
       <BrowserRouter>
       <Sidenav>
         <Routes>
-          <Route path='/' element={<Profile/>}/>
-          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/profil' element={<Profil/>}/>
           <Route path='/module' element={<Module/>}/>
           <Route path="/tambahmodul" element={<TambahModul />} />
           <Route path='/schedule' element={<Schedule/>}/>
