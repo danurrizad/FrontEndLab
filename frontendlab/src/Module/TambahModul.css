@@ -9,12 +9,18 @@ input{
 .btnAdd, .btnUpdate, .btnDelete{
     width: 150px;
     color: white;
-    background-color: #badfe7;
+    background-color: #388087;
     border: none;
     border-radius:50px;
     padding: 5px 3px;
     margin: 10px;
     display: inline-block;
+}
+
+.btnAdd:hover{
+    background-color: #badfe7;
+    color: white;
+    font-weight: 300px;
 }
 
 .buttonsModule{

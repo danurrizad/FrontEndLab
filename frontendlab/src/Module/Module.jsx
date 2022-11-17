@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React} from "react";
 import {Link} from 'react-router-dom';  
 import './Module.css';
 //import axios from 'axios';
@@ -17,7 +17,7 @@ export default function Module(){
                         <thead>
                             <tr align="center">
                                 <th width="50px" >No</th>
-                                <th width="350px" >Nama Praktikum</th>
+                                <th width="350px" >Nama Modul</th>
                                 <th width="150px" >Batch</th>
                                 <th width="150px" >Hari</th>
                                 <th width="250px" >Tempat</th>
