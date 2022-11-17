@@ -4,45 +4,45 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function TambahModul(){
-        const [namaModul, setnamaModul] = useState("");
+        const [title, setTitle] = useState("");
         const [batch, setBatch] = useState("");
-        const [hari, setHari] = useState("");
-        const [tempat, setTempat] = useState("");
-        const [tanggal, setTanggal] = useState("");
-        const [kuota, setKuota] = useState("");
-        const [msg, setMsg] = useState("");
+        const [day, setDay] = useState("");
+        const [lab, setLab] = useState("");
+        const [semester, setSemester] = useState("");
+        const [dateStart, setdateStart] = useState("");
+        const [quota, setQuota] = useState("");
         const navigate = useNavigate();
       
         const saveModule = async (e) => {
           e.preventDefault();
           try {
             await axios.post("http://api-paw.bekisar.net/api/v1/modules", {
-              namaModul,
+              title,
               batch,
-              hari,
-              tempat,
-              tanggal,
-              kuota,
+              day,
+              lab,
+              semester,
+              dateStart,
+              quota,
             });
             navigate("/module");
           } catch (error) {
-            if (error.response) {
-              setMsg(error.response.data.setMsg);
-            }
+            console.log(error)
           }
         };
     
     return(
         <div className="crud">
                     <h5>Add Module</h5>
-                    <table className="tableAddModule">
+                    <form className="tableAddModule" onSubmit={saveModule}>
                         <tr>
                             <td><label>Nama Modul :</label></td>
                             <td><input 
                             className="inputNama"
                             type="text"
-                            value={namaModul}
-                            onChange={(e) => setnamaModul(e.target.value)}
+                            required 
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             placeholder="Masukkan Nama Modul"></input></td>
                         </tr>
                         <tr>
@@ -50,6 +50,7 @@ function TambahModul(){
                             <td><input 
                             className="inputBatch"
                             type="number"
+                            required
                             value={batch}
                             onChange={(e) => setBatch(e.target.value)}
                             placeholder="Masukkan Batch"></input></td>
@@ -59,44 +60,59 @@ function TambahModul(){
                             <td><input 
                             className="inputDay"
                             type="number"
-                            value={hari}
-                            onChange={(e) => setHari(e.target.value)}
+                            required
+                            value={day}
+                            onChange={(e) => setDay(e.target.value)}
                             placeholder="Masukkan Hari dalam angka"></input></td>
                         </tr>
                         <tr>
-                            <td><label>Tempat :</label></td>
+                            <td><label>Lab :</label></td>
                             <td><input 
-                            className="inputTempat"
+                            className="inputLab"
                             type="text"
-                            value={tempat}
-                            onChange={(e) => setTempat(e.target.value)}
-                            placeholder="Masukkan Tempat"></input></td>
+                            required
+                            value={lab}
+                            onChange={(e) => setLab(e.target.value)}
+                            placeholder="Masukkan Lab"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Semester :</label></td>
+                            <td><input 
+                            className="inputSemester"
+                            type="number"
+                            required
+                            value={semester}
+                            onChange={(e) => setSemester(e.target.value)}
+                            placeholder="Masukkan Semester"></input></td>
                         </tr>
                         <tr>
                             <td><label>Tanggal :</label></td>
                             <td><input 
                             className="inputTanggal"
                             type="date"
-                            value={tanggal}
-                            onChange={(e) => setTanggal(e.target.value)}
+                            required
+                            value={dateStart}
+                            onChange={(e) => setdateStart(e.target.value)}
                             placeholder="Masukkan Tanggal Batch Modul"></input></td>
                         </tr>
                         <tr>
-                            <td><label>Kuota :</label></td>
+                            <td><label>Quota :</label></td>
                             <td><input 
                             className="inputKuota"
                             type="number"
-                            value={kuota}
-                            onChange={(e) => setKuota(e.target.value)}
+                            required
+                            value={quota}
+                            onChange={(e) => setQuota(e.target.value)}
                             placeholder="Masukkan Kuota Batch"></input></td>
                         </tr>
-                    </table>
-                    <div className="buttonsModule">
-                        <button className="btnAdd" type="submit" onSubmit={saveModule}>Add Module</button>
-                        <button className="btnUpdate">Update Module</button>
-                        <button className="btnDelete">Delete Module</button>
-                    </div>
-                </div>
+                    
+                        <div className="buttonsModule">
+                            <button className="btnAdd" type="submit">Add Module</button>
+                            <button className="btnUpdate">Update Module</button>
+                            <button className="btnDelete">Delete Module</button>
+                        </div>
+                      </form>
+          </div>
     )
 
 }
