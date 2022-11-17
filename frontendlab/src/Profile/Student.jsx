@@ -1,48 +1,47 @@
 import React, {useState, useEffect} from "react";
-import './Module.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 
-const Module = () => {
-    const [module, setModule] = useState([]);
+const Student = () => {
+    const [student, setStudent] = useState([]);
   
     useEffect(() => {
-      getModule();
-      deleteModule();
+      getStudent();
+      deleteStudent();
     }, []); 
     
-      const getModule = async () => {
-        const response = await axios.get("http://api-paw.bekisar.net/api/v1/modules");
-        setModule(response.data.data);
+      const getStudent = async () => {
+        const response = await axios.get("http://api-paw.bekisar.net/api/v1/students");
+        setStudent(response.data.data);
       }; 
 
-      const deleteModule = async (id) => {
+      const deleteStudent = async (id) => {
         console.log(id);
         try {
-          await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${id}`);
-          getModule();
+          await axios.delete(`http://api-paw.bekisar.net/api/v1/student/${id}`);
+          getStudent();
         } catch (error) {
           console.log(error);
         }
       };
     return(
         <>
-      <div className="module">
+      <div className="student">
         <div className="">
           <Navbar />
         </div>
         <div className="">
           <div className="">
-            <div className="">Modul</div>
+            <div className="">Mahasiswa</div>
             <div className=""></div>
             <div className="">
               <Link
                 className=""
-                to="/tambahmodul"
+                to="/tambahprofil"
               >
                 <button className="">
-                  + Tambah Modul
+                  + Tambah Data Mahasiswa
                 </button>
               </Link>
             </div>
@@ -74,52 +73,55 @@ const Module = () => {
                   <table className="w-full table-fixed justify-center overflow-y-auto">
                     <thead className="">
                       <tr className="border-b-2 border-gray-300">
-                        <th className="w-1/5">NAMA MODUL</th>
+                        <th className="w-1/5">NAMA</th>
+                        <th className="w-1/5">NIM</th>
                         <th className="w-1/5">BATCH</th>
-                        <th className="w-1/5">HARI</th>
-                        <th className="w-1/5">LAB</th>
-                        <th className="w-1/6">SEMESTER</th>
-                        <th className="w-1/6">TANGGAL</th>
-                        <th className="w-1/6">KUOTA</th>
+                        <th className="w-1/5">EMAIL</th>
+                        <th className="w-1/5">PASSWORD</th>
+                        <th className="w-1/6">NO HP</th>
+                        <th className="w-1/6">NOMOR LABORATORIUM</th>
+                        <th className="w-1/6">LABORATORIUM</th>
                         <th className="w-1/5">EDIT</th>
                       </tr>
                     </thead>
                     <tbody>
-                        {module.map((dat) => {
-                          const tanggal = new Date(dat.dateStart).toDateString()
+                        {student.map((dat) => {
                             return (
                             <tr className="py-8 border-b-2 border-gray-300">
                                 <td className="w-1/5 text-center">
-                                    {dat.title}
+                                    {dat.name}
                                 </td>
                                 <td className="w-1/5 text-center">
-                                    {dat.batch}
+                                    {dat.studentId}
                                 </td>
                                 <td className="w-1/5 text-left">
-                                    {dat.day}
+                                    {dat.batch}
+                                </td>
+                                <td className="w-1/5 text-center">
+                                    {dat.email}
+                                </td>
+                                <td className="w-1/5 text-center">
+                                    {dat.password}
+                                </td>
+                                <td className="w-1/5 text-center">
+                                    {dat.phone}
+                                </td>
+                                <td className="w-1/5 text-center">
+                                    {dat.labNum}
                                 </td>
                                 <td className="w-1/5 text-center">
                                     {dat.lab}
                                 </td>
                                 <td className="w-1/5 text-center">
-                                    {dat.semester}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {tanggal}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.quota}
-                                </td>
-                                <td className="w-1/5 text-center">
                                 {" "}
                                 <Link
-                                  to={`editmodule/${dat.title}`}
+                                  to={`editprofile/${dat.name}`}
                                   className="font-bold text-birumuda mr-2"
                                 >
                                   Edit
                                 </Link>
                                 <button
-                                  onClick={() => deleteModule(dat._id)}
+                                  onClick={() => deleteStudent(dat._id)}
                                   className="font-bold text-red-700"
                                 >
                                   Delete
@@ -137,4 +139,4 @@ const Module = () => {
     )
 }
 
-export default Module;
+export default Student;
