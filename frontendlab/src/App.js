@@ -1,16 +1,35 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Login from './Login';
-import Profil from './Profil';
+import React from 'react';
+import Header from './components/Header'
+import Sidenav from './components/Sidenav';
+import Profile from './Profile/Profile';
+import Module from './Module/Module';
+import TambahModul from './Module/TambahModul';
+import Schedule from './Schedule/Schedule';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Profil/>
+    <div>
+      <Header/>
+      <BrowserRouter>
+      <Sidenav>
+        <Routes>
+          <Route path='/' element={<Profile/>}/>
+          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/module' element={<Module/>}/>
+          <Route path="/tambahmodul" element={<TambahModul />} />
+          <Route path='/schedule' element={<Schedule/>}/>
+        </Routes>
+      </Sidenav>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
