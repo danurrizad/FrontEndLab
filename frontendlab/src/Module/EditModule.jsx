@@ -52,17 +52,8 @@ function EditModul() {
   return (
       <div className="container py-1">
         <div className="content-center w-1/2 items-center">
-          
           <h1 className="font-bold pb-4">Edit Module</h1>
           <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-6">
-            <div className="flex justify-end w-full">
-              <Link to="/Module">
-                <button className="flex font-medium items-center text-gray hover:underline">
-                  <HiArrowLeft />
-                  Kembali
-                </button>
-              </Link>
-            </div>
             <form className="flex flex-col gap-3" onSubmit={saveModule}>
               <div className="flex flex-col">
                 <label
