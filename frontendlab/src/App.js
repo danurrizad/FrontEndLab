@@ -5,6 +5,7 @@ import Sidenav from './components/Sidenav';
 import Profile from './Profile/Profile';
 import Module from './Module/Module';
 import TambahModul from './Module/TambahModul';
+import EditModul from './Module/EditModule';
 import Schedule from './Schedule/Schedule';
 import {
   BrowserRouter,
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/module' element={<Module/>}/>
           <Route path="/tambahmodul" element={<TambahModul />} />
+          <Route path="module/editmodul/:_id" element={<EditModul />} />
           <Route path='/schedule' element={<Schedule/>}/>
         </Routes>
       </Sidenav>

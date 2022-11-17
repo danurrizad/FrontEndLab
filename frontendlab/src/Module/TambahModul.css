@@ -6,7 +6,7 @@ input{
     width: 150%;
 }
 
-.btnAdd, .btnUpdate, .btnDelete{
+.btnAdd, .btnBack{
     width: 150px;
     color: white;
     background-color: #388087;

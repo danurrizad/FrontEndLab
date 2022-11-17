@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import './TambahModul.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function TambahModul(){
@@ -105,11 +105,9 @@ function TambahModul(){
                             onChange={(e) => setQuota(e.target.value)}
                             placeholder="Masukkan Kuota Batch"></input></td>
                         </tr>
-                    
                         <div className="buttonsModule">
-                            <button className="btnAdd" type="submit">Add Module</button>
-                            <button className="btnUpdate">Update Module</button>
-                            <button className="btnDelete">Delete Module</button>
+                            <button className="btnAdd" type="add">Tambah</button>
+                            <Link to="/Module"><button className="btnBack">Back</button></Link>
                         </div>
                       </form>
           </div>
