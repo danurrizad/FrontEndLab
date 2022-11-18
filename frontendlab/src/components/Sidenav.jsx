@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Sidenav.css'
+import './sidenav.css'
 import {NavLink} from 'react-router-dom'
 import {FaCalendarAlt, FaUserAlt, FaDiceD6, FaBars, FaHome, FaSignOutAlt} from "react-icons/fa"
 
@@ -10,7 +10,7 @@ const Sidenav = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem =[
         {
-            path:'/',
+            path:'/home',
             name:'Home',
             icon:<FaHome/>
         },
@@ -24,19 +24,19 @@ const Sidenav = ({children}) => {
             name:'Module',
             icon:<FaDiceD6/>
         },
-        {
+        /*{
             path:'/schedule',
             name:'Schedule',
             icon:<FaCalendarAlt/>
-        },
+        },*/
         
     ]
     return (
        <div className='containerNav'>
          <div style={{width: isOpen ? "300px" : "50px"}} className="sidenav">
              <div className="top_section">
-                 <h1 style={{display: isOpen ? "block" : "none"}} className='userSidebar'>Hi, {<namaUser/>}</h1>
-                 <div style={{marginLeft: isOpen ? "200px" : "0"}} className="bars">
+                 <h1 style={{display: isOpen ? "block" : "none"}} className='userSidebar'>Dashboard</h1>
+                 <div style={{marginLeft: isOpen ? "100px" : "0"}} className="bars">
                     <FaBars onClick={toggle}/>
                  </div>
              </div>
