@@ -70,6 +70,8 @@
     transition: all 0.5s;
     border-right-style: groove;
     border-color: white;
+    margin-bottom: -55%;
+    padding-bottom: 55%;
   }
   
   .top_section{
@@ -95,6 +97,7 @@
     gap: 15px;
     text-decoration: none;
     background-color: none;
+    margin-block: 2rem;
   }
   
   .active{
@@ -118,7 +121,7 @@
     gap: 15px;
     text-decoration: none;
     background-color: none;
-    bottom: 0;
+    bottom: -25%;
     position: absolute;
     display: flex;
   }
