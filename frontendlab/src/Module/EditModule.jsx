@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BiChevronRight } from "react-icons/bi";
-import { HiArrowLeft } from "react-icons/hi";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import './TambahModul.css'
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function EditModul() {
@@ -51,9 +50,9 @@ function EditModul() {
 
   return (
       <div className="crud">
-        <div className="content-center w-1 items-center">
+        <div className="content-center items-center">
           <center><h1 className="font-bold pb-4">Edit Module</h1></center>
-          <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-6">
+          <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-7">
             <form className="flex flex-col gap-2" onSubmit={saveModule}>
               <div className="flex flex-col">
                 <label
@@ -69,7 +68,7 @@ function EditModul() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   name="title"
-                  placeholder="Masukkan modul"
+                  placeholder="Masukkan Nama Modul"
                 />
               </div>
               <div className="flex flex-col">
@@ -103,7 +102,7 @@ function EditModul() {
                   value={day}
                   onChange={(e) => setDay(e.target.value)}
                   name="Hari"
-                  placeholder="Masukkan hari"
+                  placeholder="Masukkan Hari dalam Angka (Senin = 1)"
                 />
               </div>
               <div className="flex flex-col">
@@ -120,7 +119,7 @@ function EditModul() {
                     value={lab}
                     onChange={(e) => setLab(e.target.value)}
                     name="Lab"
-                    placeholder="Lab"
+                    placeholder="Masukkan Lab"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -154,13 +153,13 @@ function EditModul() {
                     value={dateStart}
                     onChange={(e) => setdateStart(e.target.value)}
                     name="Tanggal"
-                    placeholder="Masukkan Tanggal"
+                    placeholder="Masukkan Tanggal Batch Modul Dilaksanakan"
                   />
                 </div>
                 <div className="flex flex-col">
                   <label
                     className="text-base font-medium text-gray"
-                    htmlFor="Kuota"
+                    htmlFor="Masukkan Kuota Batch"
                   >
                     Kuota
                   </label>
@@ -174,14 +173,14 @@ function EditModul() {
                     placeholder="Masukkan kuota"
                   />
                 </div>
-              <div className="flex justify-center mt-6 gap-5">
+              <div className="buttonsModule">
                 <button
-                  className="w-28 py-1 border border-gray text-gray font-semibold rounded-full hover:underline"
+                  className="btnEdit"
                   type="submit"
                 >
-                  Simpan
+                  Edit
                 </button>
-                <button className="w-28 py-1 border border-gray text-gray font-semibold rounded-full hover:underline">
+                <button className="btnBatal">
                   Batal
                 </button>
               </div>
