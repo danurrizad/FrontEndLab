@@ -1,10 +1,10 @@
 import React from "react";
-import './Homepage.css';
+import './homepage.css';
 
 export default function Homepage(){
     return(
         <div class="homepage">
-            <h1>Pendaftaran Praktikum</h1>
+            <h1>Home</h1>
         </div>
     )
 }

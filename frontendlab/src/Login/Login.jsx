@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
-import "./Login.css";
+import "./login.css";
 
 function Login(){
     const [errorMessages, setErrorMessages] = useState({});
