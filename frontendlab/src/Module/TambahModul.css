@@ -1,14 +1,14 @@
 .crud{
     margin-top: 40px;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 input{
     width: 150%;
 }
 
-.btnAdd, .btnBack{
+.btnAdd, .btnBack, .btnEdit, .btnBatal{
     width: 150px;
     color: white;
     background-color: #388087;
@@ -27,4 +27,7 @@ input{
 
 .buttonsModule{
     justify-content:space-around;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -60,7 +60,6 @@ const Module = () => {
                     <div className="flex items-center">
                       <form action="">
                         <div className="relative flex items-center">
-                         Search
                           <input
                             type="text"
                             placeholder="Cari Modul"
@@ -69,7 +68,7 @@ const Module = () => {
                         </div>
                       </form>
                       <button className="text-sm font-medium rounded-md border-2 border-gray-300 flex items-center px-2 py-1 hover:bg-dark">
-                        Filter
+                        Search
                       </button>
                     </div>
                   </div>
@@ -79,14 +78,14 @@ const Module = () => {
                   <table className="w-full table-fixed text-center overflow-y-auto">
                     <thead className="">
                       <tr className="border-b-2 border-gray-300">
-                        <th className="w-1/5">NAMA MODUL</th>
-                        <th className="w-1/5">BATCH</th>
-                        <th className="w-1/5">HARI</th>
-                        <th className="w-1/5">LAB</th>
+                        <th className="w-1/2">NAMA MODUL</th>
+                        <th className="w-1/6">BATCH</th>
+                        <th className="w-1/6">HARI</th>
+                        <th className="w-1/4">LAB</th>
                         <th className="w-1/6">SEMESTER</th>
-                        <th className="w-1/6">TANGGAL</th>
+                        <th className="w-1/3">TANGGAL</th>
                         <th className="w-1/6">KUOTA</th>
-                        <th className="w-1/5">EDIT</th>
+                        <th className="w-1/4">EDIT</th>
                       </tr>
                     </thead>
                     <tbody>
