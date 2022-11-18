@@ -2,6 +2,7 @@
     margin-top: 40px;
     margin-left: 100px;
     margin-right: 100px;
+    height: 88vh;
 }
 
 input{
@@ -19,8 +20,8 @@ input{
     display: inline-block;
 }
 
-.btnAdd:hover{
-    background-color: #badfe7;
+.btnAdd:hover, .btnBack:hover{
+    background-color: #213d43;
     color: white;
     font-weight: 300px;
 }
