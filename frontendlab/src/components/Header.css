@@ -4,8 +4,6 @@
     background-color: #388087;
 }
 
-
-
 .titleNav{
     font-size: 11px;
     color: #f6f6f2;
@@ -20,41 +18,8 @@
     display: flex;
 }
 
-.searchBar{
-    position: absolute;
-    right:0;
-    margin-right: 10px;
-    margin-top: 15px;
-}
-
-.searchBox{
-    margin-right: 5px;
-    border-radius: 10px;
-    border: none;
-    padding: 6px 12px;
-}
-
-
-
 .active{
     border-color: #388087;
-}
-
-
-.buttonSearch{
-    text-decoration: none;
-    border: none;
-    background-color: #f6f6f2;
-    width: 150px;
-    color:#388087;
-    font-weight: 100;
-    border-radius: 10px;
-}
-
-.buttonSearch:hover{
-    background-color: #badfe7;
-    color: white;
-    font-weight: 300px;
 }
 
 @media screen and (max-width: 600px) {

@@ -15,11 +15,6 @@ export default function Header(){
                                 Departemen Teknik Elektro dan <br></br> Teknologi Informasi <br></br> Universitas Gadjah Mada
                             </Nav> 
                         </Nav>
-                        <Nav className="searchBar">
-                            <input className="searchBox" placeholder="Search" activeclassName="active"/>
-                            <button className="buttonSearch">Search</button>
-                            
-                        </Nav>
                     </Navbar.Brand>
                 </Container>
 
