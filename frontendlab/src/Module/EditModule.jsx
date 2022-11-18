@@ -50,11 +50,11 @@ function EditModul() {
   };
 
   return (
-      <div className="container py-1">
-        <div className="content-center w-1/2 items-center">
-          <h1 className="font-bold pb-4">Edit Module</h1>
+      <div className="crud">
+        <div className="content-center w-1 items-center">
+          <center><h1 className="font-bold pb-4">Edit Module</h1></center>
           <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-6">
-            <form className="flex flex-col gap-3" onSubmit={saveModule}>
+            <form className="flex flex-col gap-2" onSubmit={saveModule}>
               <div className="flex flex-col">
                 <label
                   className="text-base font-medium text-gray"
@@ -174,15 +174,15 @@ function EditModul() {
                     placeholder="Masukkan kuota"
                   />
                 </div>
-              <div className="flex justify-center mt-6 gap-6">
-                <button className="w-28 py-1 border border-gray text-gray font-semibold rounded-full hover:underline">
-                  Batal
-                </button>
+              <div className="flex justify-center mt-6 gap-5">
                 <button
                   className="w-28 py-1 border border-gray text-gray font-semibold rounded-full hover:underline"
                   type="submit"
                 >
                   Simpan
+                </button>
+                <button className="w-28 py-1 border border-gray text-gray font-semibold rounded-full hover:underline">
+                  Batal
                 </button>
               </div>
             </form>

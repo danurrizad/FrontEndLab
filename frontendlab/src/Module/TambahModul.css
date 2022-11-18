@@ -1,5 +1,7 @@
 .crud{
-    margin-top: 100px;
+    margin-top: 40px;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 input{
@@ -25,8 +27,4 @@ input{
 
 .buttonsModule{
     justify-content:space-around;
-}
-
-.tableAddModule td{
-    border:0;
 }
