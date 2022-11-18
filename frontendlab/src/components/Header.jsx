@@ -1,5 +1,5 @@
 import React from "react";
-import './header.css';
+import './Header.css';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import logoImage from "../assets/images/logo-ugm.png"
 

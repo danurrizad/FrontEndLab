@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
-import Header from './components/header'
-import Sidenav from './components/sidenav';
-import Profile from './Profile/profile';
-import Module from './Module/module';
+import Header from './components/Header'
+import Sidenav from './components/Sidenav';
+import Profile from './Profile/Profile';
+import Module from './Module/Module';
 import TambahModul from './Module/tambahmodule';
-import EditModul from './Module/editmodule';
-import Schedule from './Schedule/schedule';
-import Homepage from './Homepage/homepage';
+import EditModul from './Module/EditModule';
+import Schedule from './Schedule/Schedule';
+import Homepage from './Homepage/Homepage';
 import {
   BrowserRouter,
   Routes,
@@ -22,6 +22,7 @@ const App = () => {
       <BrowserRouter>
       <Sidenav>
         <Routes>
+          <Route path='/' element={<Homepage/>}/>
           <Route path='/home' element={<Homepage/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/module' element={<Module/>}/>

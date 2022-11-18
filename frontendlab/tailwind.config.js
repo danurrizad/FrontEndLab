@@ -7,8 +7,8 @@ module.exports = {
     "./src/Homepage/Homepage.jsx",
     "./src/components/Header.jsx",
     "./src/components/Sidenav.jsx",
-    "./src/Module/EditModul.jsx",
-    "./src/Module/TambahModul.jsx",
+    "./src/Module/EditModule.jsx",
+    "./src/Module/tambahmodule.jsx",
   ],
   theme: {
     extend: {},

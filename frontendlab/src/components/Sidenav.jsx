@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './sidenav.css'
+import './Sidenav.css'
 import {NavLink} from 'react-router-dom'
 import {FaCalendarAlt, FaUserAlt, FaDiceD6, FaBars, FaHome, FaSignOutAlt} from "react-icons/fa"
 
