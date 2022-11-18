@@ -12,7 +12,6 @@ function EditModul() {
     const [dateStart, setdateStart] = useState("");
     const [quota, setQuota] = useState("");
     const { _id } = useParams();
-    const kode = _id;
     const navigate = useNavigate();
 
   const saveModule = async (e) => {
