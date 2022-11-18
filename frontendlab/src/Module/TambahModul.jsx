@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import './TambahModul.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function TambahModul(){
@@ -33,20 +33,28 @@ function TambahModul(){
     
     return(
         <div className="crud">
-                    <h5>Add Module</h5>
-                    <form className="tableAddModule" onSubmit={saveModule}>
-                        <tr>
-                            <td><label>Nama Modul :</label></td>
+            <div className="content-center w-1/2 items-center">
+                <h1 className="font-bold pb-4">Tambah Module</h1>
+                <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-7">
+                    <form className="flex flex-col gap-2" onSubmit={saveModule}>
+                        <tr className="flex flex-col">
+                            <td><label 
+                            className="text-base font-medium text-gray"
+                            htmlFor="Nama Modul">Nama Modul</label></td>
                             <td><input 
-                            className="inputNama"
+                            className="border-b-2 w-full p-1 text-gray-500 bg-white"
+                            id="title"
                             type="text"
                             required 
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            name="title"
                             placeholder="Masukkan Nama Modul"></input></td>
                         </tr>
                         <tr>
-                            <td><label>Batch :</label></td>
+                            <td><label 
+                            className="text-base font-medium text-gray"
+                            htmlFor="Nama Modul">Batch</label></td>
                             <td><input 
                             className="inputBatch"
                             type="number"
@@ -105,13 +113,13 @@ function TambahModul(){
                             onChange={(e) => setQuota(e.target.value)}
                             placeholder="Masukkan Kuota Batch"></input></td>
                         </tr>
-                    
                         <div className="buttonsModule">
-                            <button className="btnAdd" type="submit">Add Module</button>
-                            <button className="btnUpdate">Update Module</button>
-                            <button className="btnDelete">Delete Module</button>
+                            <button className="btnAdd" type="add">Tambah</button>
+                            <Link to="/Module"><button className="btnBack">Batal</button></Link>
                         </div>
                       </form>
+                    </div>
+                </div>
           </div>
     )
 

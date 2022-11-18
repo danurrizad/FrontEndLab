@@ -1,12 +1,14 @@
 .crud{
-    margin-top: 100px;
+    margin-top: 40px;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 input{
     width: 150%;
 }
 
-.btnAdd, .btnUpdate, .btnDelete{
+.btnAdd, .btnBack{
     width: 150px;
     color: white;
     background-color: #388087;
@@ -25,8 +27,4 @@ input{
 
 .buttonsModule{
     justify-content:space-around;
-}
-
-.tableAddModule td{
-    border:0;
 }
