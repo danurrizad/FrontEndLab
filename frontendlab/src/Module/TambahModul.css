@@ -1,0 +1,33 @@
+.crud{
+    margin-top: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+input{
+    width: 150%;
+}
+
+.btnAdd, .btnBack, .btnEdit, .btnBatal{
+    width: 150px;
+    color: white;
+    background-color: #388087;
+    border: none;
+    border-radius:50px;
+    padding: 5px 3px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.btnAdd:hover{
+    background-color: #badfe7;
+    color: white;
+    font-weight: 300px;
+}
+
+.buttonsModule{
+    justify-content:space-around;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

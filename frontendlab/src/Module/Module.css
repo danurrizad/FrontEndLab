@@ -1,7 +1,9 @@
 .module{
     background-color: white;
-    height: 89vh;
-    margin-left: 40px;
+    height: 90vh;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 
@@ -28,7 +30,7 @@ thead{
     background-color: #badfe7;
 }
 
-.crud{
+/*.crud{
     margin-top: 100px;
 }
 
@@ -53,4 +55,4 @@ input{
 
 .tableAddModule td{
     border:0;
-}
+}*/

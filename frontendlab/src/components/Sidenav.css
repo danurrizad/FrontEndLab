@@ -128,6 +128,13 @@
     background-color: none;
     color:#388087;
   }
+
+  @media screen and (max-width: 600px) {
+    .containerNav {
+      max-width: 90%;
+      margin: auto;
+    }
+  }
   
   
   

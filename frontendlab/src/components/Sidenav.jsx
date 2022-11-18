@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import './Sidenav.css'
 import {NavLink} from 'react-router-dom'
 import {FaCalendarAlt, FaUserAlt, FaDiceD6, FaBars, FaHome, FaSignOutAlt} from "react-icons/fa"
-import namaUser from './Users'
 
 
 
