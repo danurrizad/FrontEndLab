@@ -13,6 +13,17 @@ function EditModul() {
     const { _id } = useParams();
     const navigate = useNavigate();
 
+    useEffect(() => {
+      setTitle(localStorage.getItem('Title'))
+      setBatch(localStorage.getItem('Batch'));
+      setDay(localStorage.getItem('Day'));
+      setLab(localStorage.getItem('Lab'));
+      setSemester(localStorage.getItem('Semester'));
+      setdateStart(localStorage.getItem('Date Start'));
+      setQuota(localStorage.getItem('Quota'));
+    }, []);
+
+
   const saveModule = async (e) => {
     e.preventDefault();
     try {

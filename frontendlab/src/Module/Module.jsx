@@ -5,21 +5,35 @@ import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 
 const Module = () => {
-    const [module, setModule] = useState([]);
-  
-    useEffect(() => {
-      getModule();
-    }, []); 
-
+      const [module, setModule] = useState([]);
     
-    useEffect(() => {
-      deleteModule();
-    }, []); 
+      useEffect(() => {
+        getModule();
+        deleteModule();
+      }, []); 
+
     
       const getModule = async () => {
         const response = await axios.get("http://api-paw.bekisar.net/api/v1/modules");
         setModule(response.data.data);
       }; 
+
+      const setUpdate = async(dat) => {
+        let { title,
+          batch,
+          day,
+          lab,
+          semester,
+          dateStart,
+          quota} = dat ;
+        localStorage.setItem('Title', title);
+        localStorage.setItem('Batch', batch);
+        localStorage.setItem('Day', day);
+        localStorage.setItem('Lab', lab);
+        localStorage.setItem('Semester', semester);
+        localStorage.setItem('Date Start', dateStart);
+        localStorage.setItem('Quota', quota);
+      };
 
       const deleteModule = async (_id) => {
         console.log(_id);
@@ -30,6 +44,9 @@ const Module = () => {
           console.log(error);
         }
       };
+      
+      
+
     return(
         <>
         <div className="module">
@@ -119,6 +136,7 @@ const Module = () => {
                                 <Link
                                   to={`editmodul/${dat._id}`}
                                   className="font-bold text-birumuda mr-2"
+                                  onClick={() => setUpdate(dat)}
                                 >
                                   Edit
                                 </Link>
