@@ -1,12 +1,15 @@
 .crud{
-    margin-top: 100px;
+    margin-top: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 88vh;
 }
 
 input{
     width: 150%;
 }
 
-.btnAdd, .btnUpdate, .btnDelete{
+.btnAdd, .btnBack, .btnEdit, .btnBatal{
     width: 150px;
     color: white;
     background-color: #388087;
@@ -17,16 +20,15 @@ input{
     display: inline-block;
 }
 
-.btnAdd:hover{
-    background-color: #badfe7;
+.btnAdd:hover, .btnBack:hover{
+    background-color: #213d43;
     color: white;
     font-weight: 300px;
 }
 
 .buttonsModule{
     justify-content:space-around;
-}
-
-.tableAddModule td{
-    border:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

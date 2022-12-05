@@ -1,7 +1,9 @@
 .module{
     background-color: white;
-    height: 89vh;
-    margin-left: 40px;
+    height: 88vh;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 
@@ -12,12 +14,12 @@
 }
 
 table th{
-    border: 2px solid black;
+    border-top: 1px solid black;
     color: black;
 }
 
 table td{
-    border: 2px solid black;
+    border-top: 1px solid black;
     padding-left: 10px;
     height: 10px;
     vertical-align: top;
