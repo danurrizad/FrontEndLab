@@ -1,14 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
   content: [
-    "./src/Module/Module.jsx",
-    "./src/Profile/Profile.jsx",
-    "./src/Schedule/Schedule.jsx",
-    "./src/Homepage/Homepage.jsx",
     "./src/components/Header.jsx",
     "./src/components/Sidenav.jsx",
-    "./src/Module/EditModule.jsx",
-    "./src/Module/tambahmodule.jsx",
+    "./src/components/Dialog.jsx",
+    "./src/components/Modal.jsx",
+    "./src/components/modal2.jsx",
+    "./src/pages/Module/Module.jsx",
+    "./src/pages/Module/EditModule.jsx",
+    "./src/pages/Module/tambahmodule.jsx",
+    "./src/pages/Profile/Profile.jsx",
+    "./src/pages/Schedule/Schedule.jsx",
+    "./src/pages/Homepage/Homepage.jsx",
+    "./src/pages/Login.jsx",
+    "./src/pages/Register.jsx",
   ],
   theme: {
     extend: {},

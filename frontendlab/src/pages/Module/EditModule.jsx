@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditModul() {
     const [title, setTitle] = useState("");
@@ -36,9 +38,30 @@ function EditModul() {
         dateStart,
         quota,
       });
-      navigate("/Module");
+      navigate("/module");
+      toast.success('Modul berhasil diupdate!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     } catch (error) {
         console.log(error)
+        navigate("/module");
+        toast.error('Modul tidak berhasil diupdate!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
       }
   };
 
@@ -182,16 +205,18 @@ function EditModul() {
                     placeholder="Masukkan kuota"
                   />
                 </div>
-              <div className="buttonsModule">
+              <div className="buttonsModule justify-center flex items-center gap-3">
                 <button
-                  className="btnEdit"
+                  className="rounded-[50px] py-1 px-14 bg-[#388087] text-white hover:bg-cyan-900"
                   type="submit"
                 >
                   Edit
                 </button>
-                <button className="btnBatal">
-                  Batal
-                </button>
+                <Link to="/module">
+                  <button className="rounded-[50px] decoration-0 py-1 px-14 bg-[#388087] text-white hover:bg-cyan-900">
+                    Batal
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
