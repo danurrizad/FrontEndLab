@@ -15,8 +15,8 @@ const Sidenav = ({children}) => {
             icon:<FaHome/>
         },
         {
-            path:'/profile',
-            name:'Profile',
+            path:'/profil',
+            name:'Profil',
             icon:<FaUserAlt/>
         },
         {

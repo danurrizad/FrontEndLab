@@ -1,55 +1,55 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import './Module.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 
 const Module = () => {
-      const [module, setModule] = useState([]);
-    
-      useEffect(() => {
-        getModule();
-        deleteModule();
-      }, []); 
+  const [module, setModule] = useState([]);
 
-    
-      const getModule = async () => {
-        const response = await axios.get("http://api-paw.bekisar.net/api/v1/modules");
-        setModule(response.data.data);
-      }; 
+  useEffect(() => {
+    getModule();
+    deleteModule();
+  }, []);
 
-      const setUpdate = async(dat) => {
-        let { title,
-          batch,
-          day,
-          lab,
-          semester,
-          dateStart,
-          quota} = dat ;
-        localStorage.setItem('Title', title);
-        localStorage.setItem('Batch', batch);
-        localStorage.setItem('Day', day);
-        localStorage.setItem('Lab', lab);
-        localStorage.setItem('Semester', semester);
-        localStorage.setItem('Date Start', dateStart);
-        localStorage.setItem('Quota', quota);
-      };
 
-      const deleteModule = async (_id) => {
-        console.log(_id);
-        try {
-          await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
-          getModule();
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      
-      
+  const getModule = async () => {
+    const response = await axios.get("http://api-paw.bekisar.net/api/v1/modules");
+    setModule(response.data.data);
+  };
 
-    return(
-        <>
-        <div className="module">
+  const setUpdate = async (dat) => {
+    let { title,
+      batch,
+      day,
+      lab,
+      semester,
+      dateStart,
+      quota } = dat;
+    localStorage.setItem('Title', title);
+    localStorage.setItem('Batch', batch);
+    localStorage.setItem('Day', day);
+    localStorage.setItem('Lab', lab);
+    localStorage.setItem('Semester', semester);
+    localStorage.setItem('Date Start', dateStart);
+    localStorage.setItem('Quota', quota);
+  };
+
+  const deleteModule = async (_id) => {
+    console.log(_id);
+    try {
+      await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
+      getModule();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+  return (
+    <>
+      <div className="module">
         <div className="">
           <Navbar />
         </div>
@@ -58,10 +58,10 @@ const Module = () => {
             <h1>Module</h1>
             <div className=""></div>
             <div className="">
-              
+
             </div>
             <div className="flex justify-between gap-6">
-              
+
             </div>
             <div className="flex mt-4 justify-between gap-4">
               <div className="bg-white w-full h-full">
@@ -106,50 +106,50 @@ const Module = () => {
                       </tr>
                     </thead>
                     <tbody>
-                        {module.map((dat) => {
-                          const tanggal = new Date(dat.dateStart).toDateString()
-                            return (
-                            <tr className="py-8 border-b-2 border-gray-300">
-                                <td className="w-1/5 text-center">
-                                    {dat.title}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.batch}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.day}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.lab}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.semester}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {tanggal}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                    {dat.quota}
-                                </td>
-                                <td className="w-1/5 text-center">
-                                {" "}
-                                <Link
-                                  to={`editmodul/${dat._id}`}
-                                  className="font-bold text-birumuda mr-2"
-                                  onClick={() => setUpdate(dat)}
-                                >
-                                  Edit
-                                </Link>
-                                <button
-                                  onClick={() => deleteModule(dat._id)}
-                                  className="font-bold text-red-700"
-                                >
-                                  Delete
-                                </button>
-                                </td>
-                            </tr>
-                            );
-                        })}
+                      {module.map((dat) => {
+                        const tanggal = new Date(dat.dateStart).toDateString()
+                        return (
+                          <tr className="py-8 border-b-2 border-gray-300">
+                            <td className="w-1/5 text-center">
+                              {dat.title}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {dat.batch}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {dat.day}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {dat.lab}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {dat.semester}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {tanggal}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {dat.quota}
+                            </td>
+                            <td className="w-1/5 text-center">
+                              {" "}
+                              <Link
+                                to={`editmodul/${dat._id}`}
+                                className="font-bold text-birumuda mr-2"
+                                onClick={() => setUpdate(dat)}
+                              >
+                                Edit
+                              </Link>
+                              <button
+                                onClick={() => deleteModule(dat._id)}
+                                className="font-bold text-red-700"
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -158,8 +158,8 @@ const Module = () => {
           </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  )
 }
 
 export default Module;
