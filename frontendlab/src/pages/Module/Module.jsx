@@ -1,11 +1,8 @@
 import {React, useState, useEffect, useRef} from "react";
-import './Module.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
 import Modal from "../../components/Modal";
 import { ToastContainer, toast} from "react-toastify";
-import { dialog } from "@material-tailwind/react";
 //() => deleteModule(dat._id)
 
 const Module = () => {
@@ -15,14 +12,14 @@ const Module = () => {
       const idModulRef = useRef();
       const [showModal, setShowModal] = useState({
         message:"",
-        nameModule:"",
+        nameModuleOrStudent:"",
         isLoading:false
       });
 
-      const handleModal = (message, nameModule, isLoading) => {
+      const handleModal = (message, nameModuleOrStudent, isLoading) => {
         setShowModal({
           message,
-          nameModule,
+          nameModuleOrStudent,
           isLoading,
         })
       }
