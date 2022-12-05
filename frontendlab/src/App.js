@@ -4,7 +4,8 @@ import Modal from './components/Modal';
 import NotFound from './components/NotFound';
 import Profile from './pages/Profile/Profile';
 import Student from './pages/Profile/Student';
-import TambahProfil from './pages/Profile/TambahProfil'
+import TambahProfil from './pages/Profile/TambahProfile'
+import EditProfile  from './pages/Profile/EditProfile';
 import Module from './pages/Module/Module';
 import TambahModul from './pages/Module/tambahmodule';
 import EditModul from './pages/Module/EditModule';
@@ -35,7 +36,8 @@ const App = () => {
           <Route element={<WithSidenav/>}>
             <Route path='/home' element={<Homepage/>}/>
             <Route path='/profile' element={<Student/>}/>
-            <Route path='/profile/tambahprofil' element={<TambahProfil/>}/>
+            <Route path='/profile/tambahprofile' element={<TambahProfil/>}/>
+            <Route path='/profile/editprofile/:_id' element={<EditProfile/>}/>
             <Route path='/module' element={<Module/>}/>
             <Route path='module/tambahmodul' element={<TambahModul />} />
             <Route path='module/editmodul/:_id' element={<EditModul />} />
