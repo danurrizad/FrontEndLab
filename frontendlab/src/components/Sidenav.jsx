@@ -23,7 +23,7 @@ const Sidenav = ({children}) => {
         },
         {
             path:'/profile',
-            name:'Profile',
+            name:'Profil',
             icon:<FaUserAlt/>
         },
         {
@@ -63,7 +63,7 @@ const Sidenav = ({children}) => {
 
     return (
        <div className='flex m-auto p-0'> 
-         <div style={{width: isOpen ? "50px" : "300px"}} className="bg-[#6fb3b8] text-white h-[100vh] w-[300px] transition-all">
+         <div style={{width: isOpen ? "50px" : "300px"}} className="bg-[#6fb3b8] text-white h-auto w-[300px] transition-all">
              <div className="flex items-center py-[20px] px-[15px]">
                 <img src={LogoDashboard} style={{display: isOpen ? "none" : "block"}} className="flex w-[85%]"></img>
                 <div style={{marginLeft: isOpen ? "0" : "10px"}} className="flex text-[25px] mt-[20px]">
@@ -90,7 +90,7 @@ const Sidenav = ({children}) => {
              </NavLink>
          </div>
          {showModal.isLoading && <Modal onDialog={confirmLogout} message={showModal.message}/>}
-         <main className='w-[100%]'>{children}</main>
+         <main className='w-[100%] h-fit bg-[#f6f6f2]'>{children}</main>
        </div>
        
     )

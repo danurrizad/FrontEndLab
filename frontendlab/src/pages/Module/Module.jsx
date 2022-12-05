@@ -116,13 +116,14 @@ const Module = () => {
         );
       }
 
+    //---------------------------------------------------------------------HTML-------------------------------------------------------------------------------------
     return(
         <>
-        <div className="module p-2">
+        <div className="module p-4 h-screen">
         <div className="">
           <div className="">
             <div className=" bg-[#388087] py-1 px-4 rounded-xl">
-              <h1 className=" font-serif">Module</h1>
+              <h1 className="text-center font-serif font-bold text-white">Module</h1>
             </div>
             <div className="flex justify-between gap-6">
               
@@ -139,16 +140,14 @@ const Module = () => {
                   </div>
                   <div className="flex px-4">
                     <div className="flex items-center">
-                      <form action="">
-                        <div className="relative flex items-center">
-                          <input
-                            type="text"
-                            placeholder="Cari Modul"
-                            className=" text-sm font-normal rounded-md border-2 border-gray-300 pr-3 pl-6 py-1 m-4"
-                            onChange={(e) => setQuery(e.target.value)}
-                          />
-                        </div>
-                      </form>
+                      <div className="relative flex items-center">
+                        <input
+                          type="text"
+                          placeholder="Cari Modul"
+                          className=" text-sm font-normal rounded-md border-2 border-gray-300 pr-3 pl-6 py-1 m-4"
+                          onChange={(e) => setQuery(e.target.value)}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -172,8 +171,8 @@ const Module = () => {
                           const tanggal = new Date(dat.dateStart).toDateString()
                           const batch_string = new String(dat.batch).toString()
                             return (
-                              <tr className="py-4 border-b-2 border-gray-300">
-                                  <td className="px-2 text-left">
+                              <tr className="border-b-2 border-gray-300">
+                                  <td className="py-2 px-2 text-left">
                                       {dat.title}
                                   </td>
                                   <td className="px-3 text-left">
@@ -198,18 +197,18 @@ const Module = () => {
                                   {" "}
                                   <Link
                                     to={`editmodul/${dat._id}`}
-                                    className="font-bold text-slate-50 mr-2 bg-sky-600 py-1.5 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
+                                    className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
                                     onClick={() => setUpdate(dat)}
                                   >
                                     Edit
                                   </Link>
-                                  <button
+                                  <Link
                                     onClick={()=>{handleDelete(dat._id, dat.title)}}
-                                    className="font-bold text-slate-50 bg-red-600 py-1 px-2 hover:bg-red-800 hover:text-yellow-400"
+                                    className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
                                   >
                                     Delete
                                     
-                                  </button>
+                                  </Link>
                                   </td>
                               </tr>
                               );

@@ -30,12 +30,8 @@ table td{
 */
 
 
-/*.crud{
+.crud{
     margin-top: 100px;
-}
-
-input{
-    width: 150%;
 }
 
 .btnAdd, .btnUpdate, .btnDelete{
@@ -55,4 +51,26 @@ input{
 
 .tableAddModule td{
     border:0;
-}*/
+}
+
+.cont-table {
+    margin-top:2rem;
+}
+
+.searchs {
+    display: flex;
+    float: right;
+    justify-content: space-between;
+    justify-items: end;
+    align-items: end;
+    place-items: end;
+}
+
+.search {
+    display: flex;
+    float: right;
+    justify-content: space-between;
+    justify-items: end;
+    align-items: end;
+    place-items: end;
+}
