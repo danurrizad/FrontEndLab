@@ -1,9 +1,4 @@
-*{
-    margin-left: 0;
-    margin: 0;
-    padding: 0;
-    text-decoration: none; 
-  }
+/*
   
   .containerNav{
     display: flex;
@@ -12,14 +7,12 @@
     
   }
   
-  main{
-    width: 100%;
-  }
+
   
   .sidenav{
     background: #6fb3b8;
     color:white;
-    height: auto;
+    height: 100vh;
     width: 300px;
     transition: all 0.5s;
     border-right-style: groove;
@@ -32,16 +25,19 @@
     padding: 20px 15px;
   }
   
-  .userSidebar{
-    font-size: 25px;
+  .logoDashboard{
+    width:85%;
+    display: flex;
   }
   
   .bars{
     display: flex;
     font-size: 25px;
-    margin-left: 70px;
+    margin-top: 20px;
+
   }
   
+
   .link{
     display: flex;
     color: white;
@@ -50,12 +46,12 @@
     text-decoration: none;
     background-color: none;
   }
-  
+ 
+
   .active{
     background: #badfe7;
     color: #388087;
   }
-  
   .link:hover{
     background: #badfe7;
     color: #388087;
@@ -70,14 +66,13 @@
     margin-top:-5px;
   }
 
+  
   .linkBottom{
     color: white;
     padding: 10px 15px;
     gap: 15px;
     text-decoration: none;
     background-color: none;
-    bottom: 0;
-    position: absolute;
     display: flex;
   }
   
@@ -86,7 +81,9 @@
     background-color: none;
     color:#388087;
   }
+  
 
+  */
   @media screen and (max-width: 600px) {
     .containerNav {
       max-width: 90%;
