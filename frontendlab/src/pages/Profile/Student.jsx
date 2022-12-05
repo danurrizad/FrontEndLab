@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import Modal from "../../components/Modal";
 
 const Student = () => {
   const [student, setStudent] = useState([]);
@@ -16,6 +17,24 @@ const Student = () => {
     setStudent(response.data.data);
   };
 
+  const setUpdate = async(dat) => {
+    let { name,
+      studentId,
+      batch,
+      email,
+      password,
+      phone,
+      labNum,
+      lab} = dat ;
+    localStorage.setItem('Name', name);
+    localStorage.setItem('Student Id', studentId);
+    localStorage.setItem('Batch', batch);
+    localStorage.setItem('Email', email);
+    localStorage.setItem('Password', password);
+    localStorage.setItem('Phone', phone);
+    localStorage.setItem('Lab Num', labNum);
+    localStorage.setItem('Lab', lab);
+  };
   const deleteStudent = async (_id) => {
     console.log(_id);
     try {
@@ -25,6 +44,64 @@ const Student = () => {
       console.log(error);
     }
   };
+
+  //START OF MODAL
+  const idModulRef = useRef();
+  const [showModal, setShowModal] = useState({
+    message:"",
+    nameStudent:"",
+    isLoading:false
+  });
+
+  const handleModal = (message, nameModuleOrStudent, isLoading) => {
+    setShowModal({
+      message,
+      nameModuleOrStudent,
+      isLoading,
+    })
+  }
+
+  const handleDelete = (id, name) => {
+    handleModal("Are you sure want to delete this?", name, true);
+    idModulRef.current = id;
+  };
+
+  const confirmDelete = (yes) =>{
+    if(yes){
+      try{
+        deleteStudent(idModulRef.current);
+        handleModal("", false);
+        toast.success('Mahasiswa berhasil dihapus!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      }catch(error){
+       console.log(error); 
+       handleModal("", false);
+       toast.error('Mahasiswa tidak berhasil dihapus!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+      }  
+    }
+    else{
+      handleModal("", false);
+    }
+
+  }
+  //END OF MODAL
 
   //SEARCH FUNCTION
   const [query, setQuery] = useState("");
@@ -46,8 +123,8 @@ const Student = () => {
             <div className="bg-white rounded-xl shadow-sm w-full h-full p-4">
               <div className="flex justify-between">
                 <div className="text-lg font-semibold flex items-center">
-                  <Link to="tambahprofil" className="bg-[#6fb3b8] rounded-xl py-1 px-4 text-white hover:bg-[#4e7d81] hover:text-gray-400">
-                    <button className="p-1">
+                  <Link to="tambahprofile" className="bg-[#6fb3b8] rounded-xl py-1 px-4 text-white hover:bg-[#4e7d81] hover:text-gray-400">
+                    <button>
                       + Tambahkan Mahasiswa Baru disini
                     </button>
                   </Link>
@@ -77,8 +154,8 @@ const Student = () => {
                       <th className="w-1/5">PASSWORD</th>
                       <th className="w-1/6 px-3">NO HP</th>
                       <th className="w-1/5">LABORATORIUM</th>
-                      <th className="w-1/12">NO LAB</th>
-                      <th className="w-1/6">ACTION</th>
+                      <th className="w-1/12 text-center">NO LAB</th>
+                      <th className="w-1/6 text-center">ACTION</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -106,19 +183,20 @@ const Student = () => {
                       <td className="text-left">
                         {dat.lab}
                       </td>
-                      <td className="px-3 text-left">
+                      <td className="px-1 text-center">
                         {dat.labNum}
                       </td>
-                      <td className=" text-left">
+                      <td className="text-center">
                         {" "}
                         <Link
-                          to={`editprofile/${dat.name}`}
+                          to={`editprofile/${dat._id}`}
+                          onClick={()=> setUpdate(dat)}
                           className="font-bold text-slate-50 mr-2 bg-sky-600 py-1.5 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
                         >
                           Edit
                         </Link>
                         <Link
-                          onClick={() => deleteStudent(dat._id)}
+                          onClick={()=>{handleDelete(dat._id, dat.name)}}
                           className="font-bold text-slate-50 bg-red-600 py-1.5 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
                         >
                           Delete
@@ -129,6 +207,19 @@ const Student = () => {
                     })}
                   </tbody>
                 </table>
+                {showModal.isLoading && <Modal onDialog={confirmDelete} message={showModal.message} nameModuleOrStudent={showModal.nameModuleOrStudent}/>}
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                  />
               </div>
             </div>
           </div>
