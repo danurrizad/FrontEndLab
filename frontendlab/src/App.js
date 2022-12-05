@@ -7,6 +7,7 @@ import TambahModul from './Module/tambahmodule';
 import EditModul from './Module/EditModule';
 import Schedule from './Schedule/Schedule';
 import Student from './Profile/Student';
+import Profile from './Profile/Student';
 import TambahProfil from './Profile/TambahProfil';
 import Homepage from './Homepage/Homepage';
 import {
@@ -23,7 +24,7 @@ const App = () => {
       <BrowserRouter>
       <Sidenav>
         <Routes>
-          <Route path='/profil' element={<Student/>}/>
+          {/* <Route path='/profil' element={<Student/>}/> */}
           <Route path='/tambahprofil' element={<TambahProfil/>}/>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/home' element={<Homepage/>}/>

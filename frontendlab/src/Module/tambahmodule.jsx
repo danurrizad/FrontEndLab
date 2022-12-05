@@ -1,9 +1,6 @@
 import React, {useState} from "react";
-import './TambahModul.css'
-import { useNavigate } from "react-router-dom";
-import {React, useState} from "react";
+import { useNavigate, Link } from "react-router-dom";
 import './tambahmodule.css'
-import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function TambahModul(){
