@@ -47,3 +47,13 @@ form {
     height: 50px;
     padding: 5px;
 }
+
+.tablee{
+    padding-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.pw-break{
+    word-break: break-all;
+}

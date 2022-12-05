@@ -5,9 +5,9 @@
     height: 88vh;
 }
 
-input{
+/* input{
     width: 150%;
-}
+} */
 
 .btnAdd, .btnBack, .btnEdit, .btnBatal{
     width: 150px;

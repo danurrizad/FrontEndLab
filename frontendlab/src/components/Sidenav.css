@@ -1,9 +1,4 @@
-*{
-    margin-left: 0;
-    margin: 0;
-    padding: 0;
-    text-decoration: none; 
-  }
+
   
   .containerNav{
     display: flex;
@@ -14,18 +9,17 @@
   
   main{
     width: 100%;
+    height: 100%;
   }
   
   .sidenav{
     background: #6fb3b8;
     color:white;
-    height: auto;
+    height: 100vh;
     width: 300px;
     transition: all 0.5s;
     border-right-style: groove;
     border-color: white;
-    margin-bottom: -55%;
-    padding-bottom: 55%;
   }
   
   .top_section{
@@ -79,7 +73,6 @@
     gap: 15px;
     text-decoration: none;
     background-color: none;
-    bottom: -25%;
     position: absolute;
     display: flex;
   }
