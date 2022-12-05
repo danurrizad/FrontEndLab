@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import './TambahModul.css'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -12,8 +11,18 @@ function EditModul() {
     const [dateStart, setdateStart] = useState("");
     const [quota, setQuota] = useState("");
     const { _id } = useParams();
-    const kode = _id;
     const navigate = useNavigate();
+
+    useEffect(() => {
+      setTitle(localStorage.getItem('Title'))
+      setBatch(localStorage.getItem('Batch'));
+      setDay(localStorage.getItem('Day'));
+      setLab(localStorage.getItem('Lab'));
+      setSemester(localStorage.getItem('Semester'));
+      setdateStart(localStorage.getItem('Date Start'));
+      setQuota(localStorage.getItem('Quota'));
+    }, []);
+
 
   const saveModule = async (e) => {
     e.preventDefault();
