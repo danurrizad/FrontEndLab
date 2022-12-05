@@ -90,7 +90,7 @@ const Sidenav = ({children}) => {
              </NavLink>
          </div>
          {showModal.isLoading && <Modal onDialog={confirmLogout} message={showModal.message}/>}
-         <main className='w-[100%] h-fit bg-[#f6f6f2]'>{children}</main>
+         <main className='w-[100%] min-h-screen bg-[#f6f6f2]'>{children}</main>
        </div>
        
     )
