@@ -16,76 +16,71 @@ const Student = () => {
     setStudent(response.data.data);
   };
 
-  const deleteStudent = async (id) => {
-    console.log(id);
+  const deleteStudent = async (_id) => {
+    console.log(_id);
     try {
-      await axios.delete(`http://api-paw.bekisar.net/api/v1/student/${id}`);
+      await axios.delete(`http://api-paw.bekisar.net/api/v1/student/${_id}`);
       getStudent();
     } catch (error) {
       console.log(error);
     }
   };
+  
   return (
+    
     <>
       <div className="student">
         <div className="">
           <Navbar />
         </div>
         <div className="">
-          <div className="">
-            <h1 className="text-center">Mahasiswa</h1>
-            <div className=""></div>
-            <div className="">
-              <Link
-                className=""
-                to="/tambahprofil"
-              >
-                <button className="">
-                  + Tambah Data Mahasiswa
-                </button>
-              </Link>
-            </div>
-          </div>
+          <h1 className="text-center">Mahasiswa</h1>
           <div className="flex mt-4 justify-between gap-4">
-            <div className="flex px-4">
-              <div className="flex items-center">
-                <form action="">
-                  <div className="relative flex items-center">
-                    aioutlinesearch
-                    <input
-                      type="text"
-                      placeholder="Cari Produk"
-                      className=" text-sm font-normal rounded-md border-2 border-gray-300 pr-3 pl-6 py-1 m-4"
-                    />
+            <div className="bg-white h-full">
+              <div className="flex justify-between">
+                <div className="text-lg font-semibold flex items-center">
+                  <Link className="" to="/TambahProfil">
+                    <button className="p-1">
+                      + Tambahkan Mahasiswa Baru disini
+                    </button>
+                  </Link>
+                </div>
+                <div className="flex relative">
+                  <div className="flex items-center items-end place-items-end searchs">
+                    <form className="searchs" action="">
+                      <div className="relative place-items-end justify-items-end">
+                        <input
+                          type="text"
+                          placeholder="Cari Mahasiswa"
+                          className="text-sm font-normal rounded-md border-2 border-gray-300 pr-3 pl-6 py-1 my-2 mx-4"
+                        />
+                      </div>
+                    </form>
+                    <button className="text-sm font-medium rounded-md border-2 border-gray-300 flex items-center px-2 py-1 hover:bg-dark my-2">
+                      Search
+                    </button>
                   </div>
-                </form>
-                <button className="text-sm font-medium rounded-md border-2 border-gray-300 flex items-center px-2 py-1">
-                  <span className="p-1">
-                    HiFilter
-                  </span>
-                  Filter
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <div className="py-10 tablee">
-            <table className="w-full table-fixed justify-center overflow-y-auto">
-              <thead className="">
-                <tr className="border-b-2 border-gray-300">
-                  <th className="w-1/5">NAMA</th>
-                  <th className="w-1/5">NIM</th>
-                  <th className="w-1/5">BATCH</th>
-                  <th className="w-1/5">EMAIL</th>
-                  <th className="w-1/5">PASSWORD</th>
-                  <th className="w-1/6">NO HP</th>
-                  <th className="w-1/6">NOMOR LABORATORIUM</th>
-                  <th className="w-1/6">LABORATORIUM</th>
-                  <th className="w-1/5">EDIT</th>
-                </tr>
-              </thead>
-              <tbody>
-                {student.map((dat) => {
+                </div>
+              </div>
+
+              <div className="my-10 cont-table">
+                <table className="w-full table-fixed text-center overflow-y-auto tablee">
+                  <thead className="">
+                    <tr className="border-b-2 border-gray-300">
+                    <th className="w-1/5">NAMA</th>
+                    <th className="w-1/5">NIM</th>
+                    <th className="w-1/5">BATCH</th>
+                    <th className="w-1/5">EMAIL</th>
+                    <th className="w-1/5">PASSWORD</th>
+                    <th className="w-1/6">NO HP</th>
+                    <th className="w-1/6">NOMOR LABORATORIUM</th>
+                    <th className="w-1/6">LABORATORIUM</th>
+                    <th className="w-1/5">EDIT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {student.map((dat) => {
                   return (
                     <tr className="py-8 border-b-2 border-gray-300">
                       <td className="w-1/5 text-center">
@@ -128,10 +123,12 @@ const Student = () => {
                         </button>
                       </td>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

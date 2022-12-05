@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import './Module.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -44,8 +44,6 @@ const Module = () => {
       console.log(error);
     }
   };
-
-
 
   return (
     <>
