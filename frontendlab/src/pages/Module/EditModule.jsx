@@ -168,7 +168,7 @@ function EditModul() {
                     value={semester}
                     onChange={(e) => setSemester(e.target.value)}
                     name="Semester"
-                    placeholder="Masukkan Semester"
+                    placeholder="Masukkan Semester (1=Ganjil dan 2=Genap)"
                   />
                 </div>
                 <div className="flex flex-col">

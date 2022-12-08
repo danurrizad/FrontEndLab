@@ -127,7 +127,7 @@ function TambahModul(){
                             required
                             value={semester}
                             onChange={(e) => setSemester(e.target.value)}
-                            placeholder="Masukkan Semester"></input></td>
+                            placeholder="Masukkan Semester (1=Ganjil dan 2=Genap)"></input></td>
                         </tr>
                         <tr className="flex flex-col">
                             <td><label
