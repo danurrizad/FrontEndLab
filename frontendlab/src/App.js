@@ -1,40 +1,48 @@
-import './App.css';
 import React from 'react';
-import Header from './components/Header'
-import Sidenav from './components/Sidenav';
-import Module from './Module/Module';
-import TambahModul from './Module/tambahmodule';
-import EditModul from './Module/EditModule';
+import Modal from './components/Modal';
+import NotFound from './components/NotFound';
+//import Profile from './pages/Profile/Profile';
+import Student from './pages/Profile/Student';
+import TambahProfil from './pages/Profile/TambahProfile'
+import EditProfile  from './pages/Profile/EditProfile';
+import Module from './pages/Module/Module';
+import TambahModul from './pages/Module/tambahmodule';
+import EditModul from './pages/Module/EditModule';
 import Schedule from './Schedule/Schedule';
-import Student from './Profile/Student';
-import Profile from './Profile/Student';
-import TambahProfil from './Profile/TambahProfil';
-import Homepage from './Homepage/Homepage';
+import Homepage from './pages/Homepage/Homepage';
+import Login from './pages/Login';
+import WithoutSidenav from './components/WithoutSidenav';
+import WithSidenav from './components/WithSidenav';
 import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom";
-
+} 
+from "react-router-dom";
 
 const App = () => {
   return (
     <div>
-      <Header/>
       <BrowserRouter>
-      <Sidenav>
         <Routes>
-          {/* <Route path='/profil' element={<Student/>}/> */}
-          <Route path='/tambahprofil' element={<TambahProfil/>}/>
-          <Route path='/' element={<Homepage/>}/>
-          <Route path='/home' element={<Homepage/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='/module' element={<Module/>}/>
-          <Route path="/tambahmodul" element={<TambahModul />} />
-          <Route path="module/editmodul/:_id" element={<EditModul />} />
-          <Route path='/schedule' element={<Schedule/>}/>
+          <Route element={<WithoutSidenav/>}>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/' element={<Login/>}/>
+            <Route path='*' element={<NotFound/>}/>
+          </Route>
+
+          <Route element={<WithSidenav/>}>
+            <Route path='/home' element={<Homepage/>}/>
+            <Route path='/profile' element={<Student/>}/>
+            <Route path='/profile/tambahprofile' element={<TambahProfil/>}/>
+            <Route path='/profile/editprofile/:_id' element={<EditProfile/>}/>
+            <Route path='/module' element={<Module/>}/>
+            <Route path='module/tambahmodul' element={<TambahModul />} />
+            <Route path='module/editmodul/:_id' element={<EditModul />} />
+            <Route path='/schedule' element={<Schedule/>}/>
+            <Route path='/modal' element={<Modal/>}/>
+          </Route>
         </Routes>
-      </Sidenav>
       </BrowserRouter>
     </div>
   );

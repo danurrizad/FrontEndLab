@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate, Link } from "react-router-dom";
+
+import {toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 import './tambahmodule.css'
+
 import axios from 'axios';
 
 function TambahModul(){
@@ -26,7 +30,28 @@ function TambahModul(){
               quota,
             });
             navigate("/module");
+            toast.success('Modul berhasil ditambahkan!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
           } catch (error) {
+            navigate("/module");
+            toast.error('Modul tidak berhasil ditambahkan!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(error)
           }
         };
