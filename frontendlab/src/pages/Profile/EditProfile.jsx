@@ -31,7 +31,7 @@ export default function EditProfile(){
   const saveStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://api-paw.bekisar.net/api/v1/student/${_id}`, {
+      await axios.put(`http://api-paw.bekisar.net/api/v1/students/${_id}`, {
         name,
         studentId,
         batch,
@@ -43,7 +43,7 @@ export default function EditProfile(){
         lab
       });
       navigate("/profile");
-      toast.success('Student berhasil diupdate!', {
+      toast.success('Mahasiswa berhasil diupdate!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -56,7 +56,7 @@ export default function EditProfile(){
     } catch (error) {
         console.log(error)
         navigate("/profile");
-        toast.error('Student tidak berhasil diupdate!', {
+        toast.error('Mahasiswa tidak berhasil diupdate!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -192,7 +192,7 @@ export default function EditProfile(){
                 </tr>
             
                 <div className="py-4 justify-center flex gap-4">
-                    <button className="bg-[#388087] text-white py-1 px-4 rounded-[50px] hover:bg-[#213d43]" type="submit">Add Profile</button>
+                    <button className="bg-[#388087] text-white py-1 px-4 rounded-[50px] hover:bg-[#213d43]" type="submit">Update Profile</button>
                     <Link to="/profile"><button className="bg-[#388087] text-white decoration-transparent py-1 px-4 rounded-[50px] hover:bg-[#213d43]">Batal</button></Link>
                 </div>
             </form>

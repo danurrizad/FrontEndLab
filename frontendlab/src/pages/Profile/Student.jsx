@@ -13,7 +13,7 @@ const Student = () => {
   }, []);
 
   const getStudent = async () => {
-    const response = await axios.get("http://api-paw.bekisar.net/api/v1/students");
+    const response = await axios.get(`http://api-paw.bekisar.net/api/v1/students`);
     setStudent(response.data.data);
   };
 
@@ -38,7 +38,7 @@ const Student = () => {
   const deleteStudent = async (_id) => {
     console.log(_id);
     try {
-      await axios.delete(`http://api-paw.bekisar.net/api/v1/student/${_id}`);
+      await axios.delete(`http://api-paw.bekisar.net/api/v1/students/${_id}`);
       getStudent();
     } catch (error) {
       console.log(error);
@@ -61,14 +61,15 @@ const Student = () => {
     })
   }
 
-  const handleDelete = (id, name) => {
+  const handleDelete = (_id, name) => {
     handleModal("Are you sure want to delete this?", name, true);
-    idModulRef.current = id;
+    idModulRef.current = _id;
   };
 
   const confirmDelete = (yes) =>{
     if(yes){
       try{
+        console.log(idModulRef.current);
         deleteStudent(idModulRef.current);
         handleModal("", false);
         toast.success('Mahasiswa berhasil dihapus!', {
@@ -146,66 +147,70 @@ const Student = () => {
               <div className="pb-10 cont-table">
                 <table className="w-full table-fixed text-left overflow-y-auto">
                   <thead className="bg-[#ecfcff] border-b-2 border-gray-300">
-                    <tr className="border-b-2 border-gray-300 text-xs">
-                      <th className="w-1/4 py-3 px-2">NAMA</th>
+                    <tr className="border-b-2 border-gray-300 text-sm font-bold">
+                      <th className="w-1/12 py-3 px-2">No.</th>
+                      <th className="w-1/4 py-3 px-2">Nama</th>
                       <th className="w-1/6">NIM</th>
-                      <th className="w-1/12">BATCH</th>
-                      <th className="w-1/4">EMAIL</th>
-                      <th className="w-1/5">PASSWORD</th>
-                      <th className="w-1/6 px-3">NO HP</th>
-                      <th className="w-1/5">LABORATORIUM</th>
-                      <th className="w-1/12 text-center">NO LAB</th>
-                      <th className="w-1/6 text-center">ACTION</th>
+                      <th className="w-1/12 px-2">Batch</th>
+                      <th className="w-1/4">Email</th>
+                      <th className="w-1/5">Password</th>
+                      <th className="w-1/6 px-3">No. HP</th>
+                      <th className="w-1/6">Laboratorium</th>
+                      <th className="w-1/12 text-center">No. Lab</th>
+                      <th className="w-1/6 text-center">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
-                  {search(student).map((dat) => {
-                  return (
-                    <tr className="py-8 border-b-2 border-gray-300 text-xs">
-                      <td className="px-2 text-left">
-                        {dat.name}
-                      </td>
-                      <td className="text-left">
-                        {dat.studentId}
-                      </td>
-                      <td className="text-left">
-                        {dat.batch}
-                      </td>
-                      <td className=" text-left">
-                        {dat.email}
-                      </td>
-                      <td className="text-left pw-break">
-                        {dat.password}
-                      </td>
-                      <td className="px-3 text-left">
-                        {dat.phone}
-                      </td>
-                      <td className="text-left">
-                        {dat.lab}
-                      </td>
-                      <td className="px-1 text-center">
-                        {dat.labNum}
-                      </td>
-                      <td className="text-center">
-                        {" "}
-                        <Link
-                          to={`editprofile/${dat._id}`}
-                          onClick={()=> setUpdate(dat)}
-                          className="font-bold text-slate-50 mr-2 bg-sky-600 py-1.5 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
-                        >
-                          Edit
-                        </Link>
-                        <Link
-                          onClick={()=>{handleDelete(dat._id, dat.name)}}
-                          className="font-bold text-slate-50 bg-red-600 py-1.5 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
-                        >
-                          Delete
-                        </Link>
-                      </td>
-                    </tr>
-                      );
-                    })}
-                  </tbody>
+                  {search(student).map((dat, index) => {
+                    return (
+                      <tbody key={index}>
+                        <tr className="py-8 border-b-2 border-gray-300 text-xs">
+                        <td className="px-2 text-left">
+                            {index+1}
+                          </td>
+                          <td className="px-2 text-left break-words">
+                            {dat.name}
+                          </td>
+                          <td className="text-left break-words">
+                            {dat.studentId}
+                          </td>
+                          <td className="px-2 text-left">
+                            {dat.batch}
+                          </td>
+                          <td className=" text-left break-words">
+                            {dat.email}
+                          </td>
+                          <td className="text-left break-words">
+                            {dat.password}
+                          </td>
+                          <td className="px-3 text-left">
+                            {dat.phone}
+                          </td>
+                          <td className="text-left break-words">
+                            {dat.lab}
+                          </td>
+                          <td className="px-1 text-center">
+                            {dat.labNum}
+                          </td>
+                          <td className="text-center">
+                            {" "}
+                            <Link
+                              to={`editprofile/${dat._id}`}
+                              onClick={()=> setUpdate(dat)}
+                              className="font-bold text-slate-50 mr-2 bg-sky-600 py-1.5 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
+                            >
+                              Edit
+                            </Link>
+                            <Link
+                              onClick={()=>{handleDelete(dat._id, dat.name)}}
+                              className="font-bold text-slate-50 bg-red-600 py-1.5 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
+                            >
+                              Delete
+                            </Link>
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
                 </table>
                 {showModal.isLoading && <Modal onDialog={confirmDelete} message={showModal.message} nameModuleOrStudent={showModal.nameModuleOrStudent}/>}
                 <ToastContainer

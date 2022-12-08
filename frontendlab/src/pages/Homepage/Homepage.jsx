@@ -1,7 +1,8 @@
 import {React, useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import jwt_decode from "jwt-decode"
-import { useNavigate } from "react-router-dom";
 
 export default function Homepage(){
     const [name, setName] = useState('')
@@ -12,10 +13,14 @@ export default function Homepage(){
     
 
     return(
-        <div class="text-center ml-[40px] h-[100vh]">
-            <h1>Home</h1>
-            <p>Hi, {name}</p>
-            <button class="bg-slate-600">Get Users</button>
+        <div class="text-center h-[100vh]">
+            <div class="p-4">
+                <div class="bg-[#388087] rounded-xl py-1"> 
+                    <h1 class="font-bold text-white font-serif">Home</h1>
+                </div>
+                <p>Hi, {name}</p>
+                <button class="bg-slate-600 py-1 px-4 text-white hover:bg-slate-800 rounded-xl">Get Users</button>
+            </div>
         </div>
     )
 }
