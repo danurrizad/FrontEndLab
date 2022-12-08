@@ -119,7 +119,7 @@ const Student = () => {
       <div className="absolute">
         <Sidenav />
       </div>
-      <div className="student p-4">
+      <div className="student p-4 min-h-screen bg-[#f6f6f2]">
         <div className="px-10">
           <div className="bg-[#388087] py-1 px-4 rounded-xl">
             <h1 className=" text-center font-serif font-bold text-white">Mahasiswa</h1>

@@ -8,7 +8,7 @@ export default function Profile(){
             <div className="absolute">
               <SidenavUsers />
             </div>
-            <div className="student p-4">
+            <div className="student p-4 bg-[#f6f6f2] min-h-screen">
                 <div className="px-10">
                 <div className="bg-[#388087] py-1 px-4 rounded-xl">
                     <h1 className=" text-center font-serif font-bold text-white">My Profile</h1>

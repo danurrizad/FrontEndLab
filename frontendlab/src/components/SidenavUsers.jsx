@@ -71,7 +71,7 @@ const Sidenav = ({children}) => {
                 </div>    
              </div>
              <div>
-                <button class="pointer-events-none">_____________________________________</button>
+                <button class="pointer-events-none" style={{display: isOpen? "block" : "none"}}>_____________________________________</button>
              </div>
              {
                 menuItem.map((item, index)=>(
@@ -82,7 +82,7 @@ const Sidenav = ({children}) => {
                 )) 
              }
              <div>
-                <button class="pointer-events-none">_____________________________________</button>
+                <button class="pointer-events-none" style={{display: isOpen? "block" : "none"}}>_____________________________________</button>
              </div>
              <NavLink onClick={handleLogout} className="flex text-current decoration-transparent py-[10px] px-[15px] gap-[15px] hover:bg-[#ffb4b3] hover:text-[#c91212] hover:font-bold focus:bg-[#ffb4b3] focus:text-[#c91212] focus:font-bold">
                 <div className="text-[20px] py-2.5">{<FaSignOutAlt/>}</div>
