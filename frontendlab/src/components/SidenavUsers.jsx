@@ -17,18 +17,18 @@ const Sidenav = ({children}) => {
       });
     const menuItem =[
         {
-            path:'/admin-home',
+            path:'/home',
             name:'Home',
             icon:<FaHome/>
         },
         {
-            path:'/admin-profile',
-            name:'Profil',
+            path:'/profile',
+            name:'My Profile',
             icon:<FaUserAlt/>
         },
         {
-            path:'/admin-module',
-            name:'Module',
+            path:'/module',
+            name:'My Module',
             icon:<FaDiceD6/>
         },
     ]

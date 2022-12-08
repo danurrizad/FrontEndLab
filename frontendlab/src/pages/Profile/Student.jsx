@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Modal from "../../components/Modal";
+import Sidenav from "../../components/Sidenav";
 
 const Student = () => {
   const [student, setStudent] = useState([]);
@@ -115,8 +116,11 @@ const Student = () => {
   
   return (
     <>
+      <div className="absolute">
+        <Sidenav />
+      </div>
       <div className="student p-4">
-        <div className="">
+        <div className="px-10">
           <div className="bg-[#388087] py-1 px-4 rounded-xl">
             <h1 className=" text-center font-serif font-bold text-white">Mahasiswa</h1>
           </div>
