@@ -1,12 +1,11 @@
 import {React, useState, useEffect, useRef} from "react";
-import './Module.css';
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
-import Modal from "../../components/Modal";
 import { ToastContainer, toast} from "react-toastify";
-import { dialog } from "@material-tailwind/react";
-//() => deleteModule(dat._id)
+
+import Modal from "../../components/Modal";
+import axios from "axios";
+
+
 
 const Module = () => {
       const [module, setModule] = useState([]); 
@@ -15,26 +14,27 @@ const Module = () => {
       const idModulRef = useRef();
       const [showModal, setShowModal] = useState({
         message:"",
-        nameModule:"",
+        nameModuleOrStudent:"",
         isLoading:false
       });
 
-      const handleModal = (message, nameModule, isLoading) => {
+      const handleModal = (message, nameModuleOrStudent, isLoading) => {
         setShowModal({
           message,
-          nameModule,
+          nameModuleOrStudent,
           isLoading,
         })
       }
 
-      const handleDelete = (id, title) => {
+      const handleDelete = (_id, title) => {
         handleModal("Are you sure want to delete this?", title, true);
-        idModulRef.current = id;
+        idModulRef.current = _id;
       };
 
       const confirmDelete = (yes) =>{
         if(yes){
           try{
+            console.log(idModulRef.current);
             deleteModule(idModulRef.current);
             handleModal("", false);
             toast.success('Modul berhasil dihapus!', {
@@ -76,7 +76,7 @@ const Module = () => {
 
     
       const getModule = async () => {
-        const response = await axios.get("http://api-paw.bekisar.net/api/v1/modules");
+        const response = await axios.get(`http://api-paw.bekisar.net/api/v1/modules`);
         setModule(response.data.data);
       }; 
 
@@ -98,9 +98,8 @@ const Module = () => {
       };
 
       const deleteModule = async (_id) => {
-        console.log(_id);
         try {
-          await axios.delete("http://api-paw.bekisar.net/api/v1/modules/${_id}");
+          await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
           getModule();
         } catch (error) {
           console.log(error);
@@ -114,6 +113,21 @@ const Module = () => {
         return data.filter((item) => 
             searchParam.some((key) => item[key].toLowerCase().includes(query))
         );
+      }
+
+      //SORT FUNCTION
+      const [value, setValue] = useState([]);
+      const [sortValue, setSortValue] = useState("");
+      const sortOptions = ["title", "lab" ]
+      
+      const handleSort = async (e) => {
+        try{
+          let value = e.target.value;
+          setSortValue(value);
+          await axios.get(`http://api-paw/bekisar.net/api/v1/modules?_sort=${value}&_order=asc`)
+        }catch(error){
+          console.log(error)
+        }
       }
 
     //---------------------------------------------------------------------HTML-------------------------------------------------------------------------------------
@@ -140,6 +154,14 @@ const Module = () => {
                   </div>
                   <div className="flex px-4">
                     <div className="flex items-center">
+                      <div>
+                      <select className="" onChange={handleSort} value={sortValue}>
+                        <option>Sort by</option>
+                        {sortOptions.map((item, index) => (
+                          <option value={item} key={index}>{item}</option>
+                        ))}
+                      </select>
+                      </div>
                       <div className="relative flex items-center">
                         <input
                           type="text"
@@ -155,65 +177,69 @@ const Module = () => {
                 <div className="pb-10">
                   <table className="w-full table-fixed text-left overflow-y-auto">
                     <thead className="bg-[#ecfcff] border-b-2 border-gray-300">
-                      <tr className="border-b-2 border-gray-300">
-                        <th className="w-1/3 py-3 px-2">NAMA MODUL</th>
-                        <th className="w-1/6">BATCH</th>
-                        <th className="w-1/6">HARI</th>
-                        <th className="w-1/3">LAB</th>
-                        <th className="w-1/6">SEMESTER</th>
-                        <th className="w-1/3">TANGGAL</th>
-                        <th className="w-1/6">KUOTA</th>
-                        <th className="w-1/4 ">ACTION</th>
+                      <tr className="border-b-2 border-gray-300 font-bold">
+                        <th className="w-1/12 px-2">No.</th>
+                        <th className="w-1/3 py-3 px-2">Nama Modul</th>
+                        <th className="w-1/12 text-center">Batch</th>
+                        <th className="w-1/6 text-center">Hari</th>
+                        <th className="w-1/3">Lab</th>
+                        <th className="w-1/6 text-center">Semester</th>
+                        <th className="w-1/3">Tanggal</th>
+                        <th className="w-1/6">Kuota</th>
+                        <th className="w-1/4 ">Action</th>
                       </tr>
                     </thead>
-                    <tbody>
-                        {search(module).map((dat) => {
+                    {search(module).map((dat, index) => {
                           const tanggal = new Date(dat.dateStart).toDateString()
-                          const batch_string = new String(dat.batch).toString()
                             return (
-                              <tr className="border-b-2 border-gray-300">
-                                  <td className="py-2 px-2 text-left">
-                                      {dat.title}
-                                  </td>
-                                  <td className="px-3 text-left">
-                                      {batch_string}
-                                  </td>
-                                  <td className="px-3 text-left">
-                                      {dat.day}
-                                  </td>
-                                  <td className="text-left">
-                                      {dat.lab}
-                                  </td>
-                                  <td className="px-4 text-left">
-                                      {dat.semester}
-                                  </td>
-                                  <td className="w-1/5 text-left">
-                                      {tanggal}
-                                  </td>
-                                  <td className="w-1/5 text-left">
-                                      {dat.quota}
-                                  </td>
-                                  <td className=" text-left">
-                                  {" "}
-                                  <Link
-                                    to={`editmodul/${dat._id}`}
-                                    className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
-                                    onClick={() => setUpdate(dat)}
-                                  >
-                                    Edit
-                                  </Link>
-                                  <Link
-                                    onClick={()=>{handleDelete(dat._id, dat.title)}}
-                                    className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
-                                  >
-                                    Delete
-                                    
-                                  </Link>
-                                  </td>
-                              </tr>
+                              <tbody key={index}>
+                                <tr className="border-b-2 border-gray-300">
+                                <td className="py-2 px-2 text-left">
+                                        {index+1}
+                                    </td>
+                                    <td className="py-2 px-2 text-left">
+                                        {dat.title}
+                                    </td>
+                                    <td className="text-center">
+                                        {dat.batch}
+                                    </td>
+                                    <td className="text-center">
+                                        {dat.day}
+                                    </td>
+                                    <td className="text-left">
+                                        {dat.lab}
+                                    </td>
+                                    <td className="text-center">
+                                        {dat.semester}
+                                    </td>
+                                    <td className="text-left">
+                                        {tanggal}
+                                    </td>
+                                    <td className="text-left">
+                                        {dat.quota}
+                                    </td>
+                                    <td className=" text-left">
+                                    {" "}
+                                    <Link
+                                      to={`editmodul/${dat._id}`}
+                                      className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
+                                      onClick={() => setUpdate(dat)}
+                                    >
+                                      Edit
+                                    </Link>
+                                    <Link
+                                      onClick={()=>{handleDelete(dat._id, dat.title)}}
+                                      className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
+                                    >
+                                      Delete
+                                      
+                                    </Link>
+                                    </td>
+                                </tr>
+                              </tbody>
                               );
-                        })}
-                    </tbody>
+                          }
+                        )}
                   </table>
                   
 

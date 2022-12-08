@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modal({message, onDialog, nameModule}) {
+export default function Modal({message, onDialog, nameModuleOrStudent}) {
     return (
         <>
             <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -16,7 +16,7 @@ export default function Modal({message, onDialog, nameModule}) {
                                     {message}
                                 </h4>
                                 <p className="mt-2 leading-relaxed text-gray-500">
-                                    {nameModule}
+                                    {nameModuleOrStudent}
                                 </p>
                                 <div className="items-center gap-2 mt-3 sm:flex">
                                     <button

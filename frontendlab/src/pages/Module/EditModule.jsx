@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import axios from "axios";
+
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+
+import axios from "axios";
 
 function EditModul() {
     const [title, setTitle] = useState("");
@@ -23,6 +25,7 @@ function EditModul() {
       setSemester(localStorage.getItem('Semester'));
       setdateStart(localStorage.getItem('Date Start'));
       setQuota(localStorage.getItem('Quota'));
+      getModulById();
     }, []);
 
 
@@ -65,9 +68,6 @@ function EditModul() {
       }
   };
 
-  useEffect(() => {
-    getModulById();
-  }, []);
 
   const getModulById = async () => {
     const response = await axios.get(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
