@@ -58,7 +58,7 @@ function TambahProfil(){
       };
     
       return(
-        <div className="crud">
+        <div className="bg-[#f6f6f2] min-h-screen p-10">
             <div className=''>
                 <h3 className='text-center w-1/2'>Add Student</h3>
                 <div className='bg-white p-3 rounded-xl shadow-md w-1/2'>
@@ -163,7 +163,7 @@ function TambahProfil(){
                     
                         <div className="py-4 justify-center flex gap-4">
                             <button className="bg-[#388087] text-white py-1 px-4 rounded-[50px] hover:bg-[#213d43]" type="submit">Add Profile</button>
-                            <Link to="/profile"><button className="bg-[#388087] text-white decoration-transparent py-1 px-4 rounded-[50px] hover:bg-[#213d43]">Batal</button></Link>
+                            <Link to="/admin-profile"><button className="bg-[#388087] text-white decoration-transparent py-1 px-4 rounded-[50px] hover:bg-[#213d43]">Batal</button></Link>
                         </div>
                     </form>
                 </div>
