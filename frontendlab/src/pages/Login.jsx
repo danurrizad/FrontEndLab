@@ -2,20 +2,29 @@ import {React, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LogoDteti from "../assets/images/logo-dteti-dashboard.png";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState();
     const navigate = useNavigate();
+    const [cookies, setCookie] = useCookies(["token"]);
 
     const Auth = async(e) => {
         e.preventDefault();
         try{
-            await axios.post('http://api-paw.bekisar.net/api/v1/auth/login',{
+            const response = await axios.post('http://api-paw.bekisar.net/api/v1/auth/login',{
                 email: email,
                 password: password,
             });
+            console.log(response.data.token);
+            const token = response.data.token;
+            setCookie("token", token, {
+                path: "/",
+            });
+
+
             navigate("/home");
     
         } catch (error) {
