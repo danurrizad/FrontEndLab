@@ -62,7 +62,7 @@ const Sidenav = ({children}) => {
     }
 
     return (
-       <div className='flex m-auto '> 
+       <div className='flex m-auto'> 
          <div style={{width: isOpen ? "300px" : "50px"}} className="bg-[#6fb3b8] text-white h-auto w-[300px] transition-all">
              <div className="flex items-center py-[20px] px-[15px]">
                 <img src={LogoDashboard} style={{display: isOpen ? "block" : "none"}} className="flex w-[85%]"></img>
@@ -71,7 +71,7 @@ const Sidenav = ({children}) => {
                 </div>    
              </div>
              <div>
-                <button class="pointer-events-none">_____________________________________</button>
+                <button class="pointer-events-none" style={{display: isOpen? "block" : "none"}}>_____________________________________</button>
              </div>
              {
                 menuItem.map((item, index)=>(
@@ -82,7 +82,7 @@ const Sidenav = ({children}) => {
                 )) 
              }
              <div>
-                <button class="pointer-events-none">_____________________________________</button>
+                <button class="pointer-events-none" style={{display: isOpen? "block" : "none"}}>_____________________________________</button>
              </div>
              <NavLink onClick={handleLogout} className="flex text-current decoration-transparent py-[10px] px-[15px] gap-[15px] hover:bg-[#ffb4b3] hover:text-[#c91212] hover:font-bold focus:bg-[#ffb4b3] focus:text-[#c91212] focus:font-bold">
                 <div className="text-[20px] py-2.5">{<FaSignOutAlt/>}</div>

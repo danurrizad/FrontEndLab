@@ -57,7 +57,7 @@ function TambahModul(){
         };
     
     return(
-        <div className="crud">
+        <div className="crud bg-[#f6f6f2]">
             <div className="content-center items-center">
                 <center><h1 className="font-bold pb-4">Tambah Module</h1></center>
                 <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-7">
