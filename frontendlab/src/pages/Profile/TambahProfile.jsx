@@ -4,6 +4,7 @@ import React from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import './TambahProfile.css'
 
 function TambahProfil(){
     //state for registration 
@@ -16,7 +17,6 @@ function TambahProfil(){
     const [labNum, setLabNum]=useState ('');
     const [lab, setLab]=useState('');
     const navigate = useNavigate();
-
 
     const saveProfile = async (e) => {
         e.preventDefault();
@@ -59,10 +59,10 @@ function TambahProfil(){
     
       return(
         <div className="crud">
-            <div className=''>
-                <h3 className='text-center w-1/2'>Add Student</h3>
-                <div className='bg-white p-3 rounded-xl shadow-md w-1/2'>
-                    <form className="tableAddStudent" onSubmit={saveProfile}>
+            <div className='content-center items-center'>
+            <center><h1 className="font-bold pb-4">Tambah Siswa</h1></center>
+                <div className="flex-col w-full h-140 rounded-md shadow-md bg-white p-7">
+                    <form className="tableAddStudent flex flex-col gap-2" onSubmit={saveProfile}>
                         <tr className='flex flex-col'>
                             <td><label 
                             className="text-base font-medium text-gray"
@@ -161,9 +161,9 @@ function TambahProfil(){
                             placeholder="Masukkan Laboratorium"></input></td>
                         </tr>
                     
-                        <div className="py-4 justify-center flex gap-4">
-                            <button className="bg-[#388087] text-white py-1 px-4 rounded-[50px] hover:bg-[#213d43]" type="submit">Add Profile</button>
-                            <Link to="/profile"><button className="bg-[#388087] text-white decoration-transparent py-1 px-4 rounded-[50px] hover:bg-[#213d43]">Batal</button></Link>
+                        <div className="buttonsProfile">
+                        <button className="btnAdd" type="add">Tambah</button>
+                            <Link to="/profile"><button className="btnBack">Batal</button></Link>
                         </div>
                     </form>
                 </div>
