@@ -2,20 +2,29 @@ import {React, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LogoDteti from "../assets/images/logo-dteti-dashboard.png";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState();
     const navigate = useNavigate();
+    const [cookies, setCookie] = useCookies(["token"]);
 
     const Auth = async(e) => {
         e.preventDefault();
         try{
-            await axios.post('http://api-paw.bekisar.net/api/v1/auth/login',{
+            const response = await axios.post('http://api-paw.bekisar.net/api/v1/auth/login',{
                 email: email,
                 password: password,
             });
+            console.log(response.data.token);
+            const token = response.data.token;
+            setCookie("token", token, {
+                path: "/",
+            });
+
+
             navigate("/home");
     
         } catch (error) {
@@ -40,13 +49,13 @@ function Login(){
                     <form onSubmit={Auth} class="bg-white p-5 border-2 border-double shadow-sm">
                         <h1 class="text-center">{msg}</h1>
                         <div class="flex flex-row items-center justify-center lg:justify-center">
-                            <h2 class="text-lg mb-4 mr-4">Login</h2>
+                            <h2 class="text-lg mb-4 mr-4">Selamat Datang</h2>
                         </div>
                         <div class="mb-6">
                             <input
                             type="text"
                             class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
+                            id="exampleFormControlInput1"
                             placeholder="Email address"
                             required
                             value={email}
@@ -69,21 +78,10 @@ function Login(){
                         <div class="text-center">
                             <button
                             type="submit"
-                            class="px-7 py-2 bg-[#9bace6] text-black font-medium text-sm  uppercase rounded shadow-md hover:bg-[#5472d6] hover:shadow-lg focus:bg-[#5472d6] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                            class="px-24 py-2 bg-[#9bace6] text-black font-medium text-sm  uppercase rounded shadow-md hover:bg-[#5472d6] hover:shadow-lg focus:bg-[#5472d6] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                             >
                             Login
                             </button>
-                            <div className="justify-center ">
-                                <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-                                Don't have an account?
-                                </p>
-                                <Link 
-                                    to="/register"
-                                    
-                                >
-                                Register here
-                                </Link>
-                            </div>
                         </div>
                     </form>
                 </div>

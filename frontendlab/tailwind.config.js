@@ -12,6 +12,8 @@ module.exports = {
     "./src/pages/Module/EditModule.jsx",
     "./src/pages/Module/tambahmodule.jsx",
     "./src/pages/Profile/Profile.jsx",
+    "./src/pages/Profile/TambahProfile.jsx",
+    "./src/pages/Profile/Student.jsx",
     "./src/pages/Schedule/Schedule.jsx",
     "./src/pages/Homepage/Homepage.jsx",
     "./src/pages/Login.jsx",

@@ -5,7 +5,7 @@ import { ToastContainer, toast} from "react-toastify";
 import Modal from "../../components/Modal";
 import axios from "axios";
 
-import Sidenav from "../../components/Sidenav";
+import SidenavUsers from "../../components/SidenavUsers";
 
 const Module = () => {
       const [module, setModule] = useState([]); 
@@ -106,41 +106,20 @@ const Module = () => {
         }
       };
       
-      //SEARCH FUNCTION
-      const [query, setQuery] = useState("");
-      const [searchParam] = useState(["title", "lab"]);
-      const search = (data) => {
-        return data.filter((item) => 
-            searchParam.some((key) => item[key].toLowerCase().includes(query))
-        );
-      }
-
-      //SORT FUNCTION
-      const [value, setValue] = useState([]);
-      const [sortValue, setSortValue] = useState("");
-      const sortOptions = ["title", "lab" ]
       
-      const handleSort = async (e) => {
-        try{
-          let value = e.target.value;
-          setSortValue(value);
-          await axios.get(`http://api-paw/bekisar.net/api/v1/modules?_sort=${value}&_order=asc`)
-        }catch(error){
-          console.log(error)
-        }
-      }
+
 
     //---------------------------------------------------------------------HTML-------------------------------------------------------------------------------------
     return(
         <>
         <div className="absolute">
-          <Sidenav />
+          <SidenavUsers />
         </div>
         <div className="module p-4 h-screen bg-[#f6f6f2]">
         <div className="px-10">
           <div className="">
             <div className=" bg-[#388087] py-1 px-4 rounded-xl">
-              <h1 className="text-center font-serif font-bold text-white">Module</h1>
+              <h1 className="text-center font-serif font-bold text-white">My Module</h1>
             </div>
             <div className="flex justify-between gap-6">
               
@@ -149,30 +128,14 @@ const Module = () => {
               <div className="bg-white rounded-xl shadow-sm w-full h-full p-4">
                 <div className="flex justify-between">
                   <div className="text-lg font-semibold flex items-center">
-                    <Link className="" to="/admin-module/tambahmodul">
+                    <Link className="" to="/module/ambilmodule">
                       <button class="bg-[#6fb3b8] rounded-xl py-1 px-4 text-white hover:bg-[#4e7d81] hover:text-gray-400">
-                        + Tambahkan Modul Baru disini
+                        + Ambil modul disini
                       </button>
                     </Link>
                   </div>
-                  <div className="flex px-4">
+                  <div className="flex px-4 py-8">
                     <div className="flex items-center">
-                      <div>
-                      <select className="" onChange={handleSort} value={sortValue}>
-                        <option>Sort by</option>
-                        {sortOptions.map((item, index) => (
-                          <option value={item} key={index}>{item}</option>
-                        ))}
-                      </select>
-                      </div>
-                      <div className="relative flex items-center">
-                        <input
-                          type="text"
-                          placeholder="Cari Modul"
-                          className=" text-sm font-normal rounded-md border-2 border-gray-300 pr-3 pl-6 py-1 m-4"
-                          onChange={(e) => setQuery(e.target.value)}
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -181,68 +144,46 @@ const Module = () => {
                   <table className="w-full table-fixed text-left overflow-y-auto">
                     <thead className="bg-[#ecfcff] border-b-2 border-gray-300">
                       <tr className="border-b-2 border-gray-300 font-bold">
-                        <th className="w-1/12 px-2">No.</th>
                         <th className="w-1/3 py-3 px-2">Nama Modul</th>
-                        <th className="w-1/12 text-center">Batch</th>
+                        <th className="w-1/6 text-center">Batch</th>
                         <th className="w-1/6 text-center">Hari</th>
                         <th className="w-1/3">Lab</th>
                         <th className="w-1/6 text-center">Semester</th>
                         <th className="w-1/3">Tanggal</th>
-                        <th className="w-1/6">Kuota</th>
                         <th className="w-1/4 ">Action</th>
                       </tr>
                     </thead>
-                    {search(module).map((dat, index) => {
-                          const tanggal = new Date(dat.dateStart).toDateString()
-                            return (
-                              <tbody key={index}>
-                                <tr className="border-b-2 border-gray-300">
-                                <td className="py-2 px-2 text-left">
-                                        {index+1}
-                                    </td>
-                                    <td className="py-2 px-2 text-left">
-                                        {dat.title}
-                                    </td>
-                                    <td className="text-center">
-                                        {dat.batch}
-                                    </td>
-                                    <td className="text-center">
-                                        {dat.day}
-                                    </td>
-                                    <td className="text-left">
-                                        {dat.lab}
-                                    </td>
-                                    <td className="text-center">
-                                        {dat.semester}
-                                    </td>
-                                    <td className="text-left">
-                                        {tanggal}
-                                    </td>
-                                    <td className="text-left">
-                                        {dat.quota}
-                                    </td>
-                                    <td className=" text-left">
-                                    {" "}
-                                    <Link
-                                      to={`editmodul/${dat._id}`}
-                                      className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
-                                      onClick={() => setUpdate(dat)}
-                                    >
-                                      Edit
-                                    </Link>
-                                    <Link
-                                      onClick={()=>{handleDelete(dat._id, dat.title)}}
-                                      className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
-                                    >
-                                      Delete
-                                      
-                                    </Link>
-                                    </td>
-                                </tr>
-                              </tbody>
-                              );
-                          }
-                        )}
+                    <tbody>
+                        <tr className="border-b-2 border-gray-300">
+                            <td className="py-2 px-2 text-left">
+                                TITLE MODUL USER
+                            </td>
+                            <td className="text-center">
+                                BATCH MODUL USER
+                            </td>
+                            <td className="text-center">
+                                DAY MODUL USER
+                            </td>
+                            <td className="text-left">
+                                LAB MODUL USER
+                            </td>
+                            <td className="text-center">
+                                SEMESTER MODUL USER
+                            </td>
+                            <td className="text-left">
+                                TANGGAL MODUL USER
+                            </td>
+                            <td className=" text-left">
+                            {" "}
+                            <Link
+                                className="font-bold text-slate-50 bg-red-600 py-1 px-2 decoration-transparent hover:bg-red-800 hover:text-yellow-400"
+                            >
+                                Delete
+                                
+                            </Link>
+                            </td>
+                        </tr>
+                    </tbody>
                   </table>
                   
 

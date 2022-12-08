@@ -17,18 +17,18 @@ const Sidenav = ({children}) => {
       });
     const menuItem =[
         {
-            path:'/admin-home',
+            path:'/home',
             name:'Home',
             icon:<FaHome/>
         },
         {
-            path:'/admin-profile',
-            name:'Profil',
+            path:'/profile',
+            name:'My Profile',
             icon:<FaUserAlt/>
         },
         {
-            path:'/admin-module',
-            name:'Module',
+            path:'/module',
+            name:'My Module',
             icon:<FaDiceD6/>
         },
     ]
@@ -62,7 +62,7 @@ const Sidenav = ({children}) => {
     }
 
     return (
-       <div className='flex m-auto'> 
+       <div className='flex m-auto '> 
          <div style={{width: isOpen ? "300px" : "50px"}} className="bg-[#6fb3b8] text-white h-auto w-[300px] transition-all">
              <div className="flex items-center py-[20px] px-[15px]">
                 <img src={LogoDashboard} style={{display: isOpen ? "block" : "none"}} className="flex w-[85%]"></img>
