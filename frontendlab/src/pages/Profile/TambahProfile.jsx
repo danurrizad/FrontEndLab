@@ -21,7 +21,7 @@ function TambahProfil(){
     const saveProfile = async (e) => {
         e.preventDefault();
         try {
-          await axios.post("http://api-paw.bekisar.net/api/v1/students", {
+          await axios.post("http://api-paw.bekisar.net/api/v1/auth/register", {
             name,
             studentId,
             batch,

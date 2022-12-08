@@ -1,5 +1,6 @@
 import {React, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode"
@@ -8,9 +9,19 @@ export default function Homepage(){
     const [name, setName] = useState('')
     const [token, setToken] = useState('')
     const [expired, setExpired] = useState('')
+    const [cookies] = useCookies(["token"])
     const navigate = useNavigate();
     
-    
+    const decode = async () => {
+        try {
+          const decoded = jwt_decode(cookies.token);
+          setName(decoded.name);
+        } catch (error) {
+          if (!cookies.token) {
+            navigate("/");
+          }
+        }
+      };
 
     return(
         <div class="text-center h-[100vh]">
