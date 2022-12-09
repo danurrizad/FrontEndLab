@@ -115,7 +115,7 @@ const Module = () => {
         <div className="absolute">
           <SidenavUsers />
         </div>
-        <div className="module p-4 h-screen">
+        <div className="module p-4 h-screen bg-[#f6f6f2]">
         <div className="px-10">
           <div className="">
             <div className=" bg-[#388087] py-1 px-4 rounded-xl">

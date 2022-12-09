@@ -25,12 +25,13 @@ export default function Homepage(){
         }
       };
 
+
     return(
         <div>
             <div className="absolute">
               <SidenavUsers />
             </div>
-            <div class="px-10 text-center h-[100vh]">
+            <div class="px-10 text-center h-[100vh] bg-[#f6f6f2]">
                 <div class="p-4">
                     <div class="bg-[#388087] rounded-xl py-1"> 
                         <h1 class="font-bold text-white font-serif">Home</h1>
