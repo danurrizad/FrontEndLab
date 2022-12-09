@@ -14,9 +14,9 @@ function Login(){
     const Auth = async(e) => {
         e.preventDefault();
         try{
-            const response = await axios.post('http://api-paw.bekisar.net/api/v1/auth/login',{
+            const response = await axios.post('https://api-paw.bekisar.net/api/v1/auth/login',{
                 email: email,
-                password: password,
+                password: password, 
             });
             console.log(response.data.token);
             const token = response.data.token;

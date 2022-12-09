@@ -23,7 +23,7 @@ const AmbilModule = () => {
       const addSchedule = async (e) => {
         e.preventDefault();
         try {
-          await axios.put(`http://api-paw.bekisar.net/api/v1/modules/student/${_id}`);
+          await axios.put(`https://api-paw.bekisar.net/api/v1/modules/student/${_id}`);
           console.log("clicked")
           toast.success('Modul berhasil diambil!', {
             position: "top-right",
@@ -118,7 +118,7 @@ const AmbilModule = () => {
 
     
       const getModule = async () => {
-        const response = await axios.get(`http://api-paw.bekisar.net/api/v1/modules`);
+        const response = await axios.get(`https://api-paw.bekisar.net/api/v1/modules`);
         setModule(response.data.data);
       }; 
 
@@ -141,7 +141,7 @@ const AmbilModule = () => {
 
       const deleteModule = async (_id) => {
         try {
-          await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
+          await axios.delete(`https://api-paw.bekisar.net/api/v1/modules/${_id}`);
           getModule();
         } catch (error) {
           console.log(error);
@@ -166,7 +166,7 @@ const AmbilModule = () => {
         try{
           let value = e.target.value;
           setSortValue(value);
-          await axios.get(`http://api-paw/bekisar.net/api/v1/modules?_sort=${value}&_order=asc`)
+          await axios.get(`https://api-paw/bekisar.net/api/v1/modules?_sort=${value}&_order=asc`)
         }catch(error){
           console.log(error)
         }

@@ -32,7 +32,7 @@ function EditModul() {
   const saveModule = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://api-paw.bekisar.net/api/v1/modules/${_id}`, {
+      await axios.put(`https://api-paw.bekisar.net/api/v1/modules/${_id}`, {
         title,
         batch,
         day,
@@ -70,7 +70,7 @@ function EditModul() {
 
 
   const getModulById = async () => {
-    const response = await axios.get(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
+    const response = await axios.get(`https://api-paw.bekisar.net/api/v1/modules/${_id}`);
     setTitle(response.data.title);
     setBatch(response.data.batch);
     setDay(response.data.day);

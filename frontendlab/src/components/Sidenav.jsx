@@ -38,7 +38,7 @@ const Sidenav = ({children}) => {
 
     const Logout = async() => {
         try{
-            await axios.post('http://api-paw.bekisar.net/api/v1/auth/logout' , {
+            await axios.post('https://api-paw.bekisar.net/api/v1/auth/logout' , {
                 headers: {
                   authorization: `Bearer ${cookies.token}`,
                 },

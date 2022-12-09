@@ -12,7 +12,7 @@ const ProfileUsers = () => {
     }, []);
   
     const getUser = async () => {
-      const response = await axios.get(`http://api-paw.bekisar.net/api/v1/auth/me`);
+      const response = await axios.get(`https://api-paw.bekisar.net/api/v1/auth/me`);
       console.log(response.data.data);
       //setUser(response.data.data);
     };

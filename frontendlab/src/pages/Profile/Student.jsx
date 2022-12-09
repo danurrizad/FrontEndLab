@@ -14,7 +14,7 @@ const Student = () => {
   }, []);
 
   const getStudent = async () => {
-    const response = await axios.get(`http://api-paw.bekisar.net/api/v1/students`);
+    const response = await axios.get(`https://api-paw.bekisar.net/api/v1/students`);
     setStudent(response.data.data);
   };
 
@@ -39,7 +39,7 @@ const Student = () => {
   const deleteStudent = async (_id) => {
     console.log(_id);
     try {
-      await axios.delete(`http://api-paw.bekisar.net/api/v1/students/${_id}`);
+      await axios.delete(`https://api-paw.bekisar.net/api/v1/students/${_id}`);
       getStudent();
     } catch (error) {
       console.log(error);
