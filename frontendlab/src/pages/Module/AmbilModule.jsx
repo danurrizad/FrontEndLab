@@ -23,14 +23,8 @@ const AmbilModule = () => {
       const addSchedule = async (e) => {
         e.preventDefault();
         try {
-          await axios.put(`http://api-paw.bekisar.net/api/v1/modules/student/${_id}`, {
-            title,
-            batch,
-            day,
-            lab,
-            semester,
-            dateStart,
-          });
+          await axios.put(`http://api-paw.bekisar.net/api/v1/modules/student/${_id}`);
+          console.log("clicked")
           toast.success('Modul berhasil diambil!', {
             position: "top-right",
             autoClose: 5000,
@@ -190,11 +184,11 @@ const AmbilModule = () => {
             <div className=" bg-[#388087] py-1 px-4 rounded-xl">
               <h1 className="text-center font-serif font-bold text-white">Module</h1>
             </div>
-            <div className="flex justify-between gap-6" onSubmit={addSchedule}>
+            <div className="flex justify-between gap-6" >
               
             </div>
             <div className="flex mt-4 justify-between gap-4">
-              <div className="bg-white rounded-xl shadow-sm w-full h-full p-4">
+              <div className="bg-white rounded-xl shadow-sm w-full h-full p-4" onSubmit={addSchedule}>
                 <div className="flex justify-between">
                   <div className="text-lg font-semibold flex items-center">
                   </div>
@@ -267,9 +261,8 @@ const AmbilModule = () => {
                                     <td className=" text-left">
                                     {" "}
                                     <Link
-                                    
                                       className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
-                                      //onClick={() => addSchedule(dat)}
+                                      onClick={() => addSchedule(dat)}
                                       type="submit"
                                     >
                                       Add
