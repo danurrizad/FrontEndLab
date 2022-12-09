@@ -4,11 +4,52 @@ import { ToastContainer, toast} from "react-toastify";
 
 import Modal from "../../components/Modal";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Sidenav from "../../components/SidenavUsers";
 
-const Module = () => {
+const AmbilModule = () => {
       const [module, setModule] = useState([]); 
+      const [title, setTitle] = useState("");
+      const [batch, setBatch] = useState("");
+      const [day, setDay] = useState("");
+      const [lab, setLab] = useState("");
+      const [semester, setSemester] = useState("");
+      const [dateStart, setdateStart] = useState("");
+      const [quota, setQuota] = useState("");
+      const { _id } = useParams();
+      const navigate = useNavigate();
+
+      const addSchedule = async (e) => {
+        e.preventDefault();
+        try {
+          await axios.put(`http://api-paw.bekisar.net/api/v1/modules/student/${_id}`);
+          console.log("clicked")
+          toast.success('Modul berhasil diambil!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        } catch (error) {
+            console.log(error)
+            navigate("/module");
+            toast.error('Modul tidak berhasil diambil!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              });
+          }
+      };    
 
       //START OF MODAL
       const idModulRef = useRef();
@@ -71,6 +112,7 @@ const Module = () => {
 
       useEffect(() => {
         getModule();
+        addSchedule();
         deleteModule();
       }, []); 
 
@@ -142,11 +184,11 @@ const Module = () => {
             <div className=" bg-[#388087] py-1 px-4 rounded-xl">
               <h1 className="text-center font-serif font-bold text-white">Module</h1>
             </div>
-            <div className="flex justify-between gap-6">
+            <div className="flex justify-between gap-6" >
               
             </div>
             <div className="flex mt-4 justify-between gap-4">
-              <div className="bg-white rounded-xl shadow-sm w-full h-full p-4">
+              <div className="bg-white rounded-xl shadow-sm w-full h-full p-4" onSubmit={addSchedule}>
                 <div className="flex justify-between">
                   <div className="text-lg font-semibold flex items-center">
                   </div>
@@ -219,9 +261,9 @@ const Module = () => {
                                     <td className=" text-left">
                                     {" "}
                                     <Link
-                                      to={`editmodul/${dat._id}`}
                                       className="font-bold text-slate-50 mr-2 bg-sky-600 py-1 px-3 decoration-transparent hover:bg-sky-800 hover:text-yellow-400"
-                                      onClick={() => setUpdate(dat)}
+                                      onClick={() => addSchedule(dat)}
+                                      type="submit"
                                     >
                                       Add
                                     </Link>
@@ -259,4 +301,4 @@ const Module = () => {
     )
 }
 
-export default Module;
+export default AmbilModule;

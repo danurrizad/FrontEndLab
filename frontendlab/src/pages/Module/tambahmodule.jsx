@@ -29,7 +29,7 @@ function TambahModul(){
               dateStart,
               quota,
             });
-            navigate("/module");
+            navigate("/admin-module");
             toast.success('Modul berhasil ditambahkan!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -41,7 +41,7 @@ function TambahModul(){
                 theme: "colored",
                 });
           } catch (error) {
-            navigate("/module");
+            navigate("/admin-module");
             toast.error('Modul tidak berhasil ditambahkan!', {
                 position: "top-right",
                 autoClose: 5000,
