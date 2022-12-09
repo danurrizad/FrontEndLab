@@ -42,7 +42,7 @@ export default function EditProfile(){
         labNum,
         lab
       });
-      navigate("/profile");
+      navigate("/admin-profile");
       toast.success('Mahasiswa berhasil diupdate!', {
         position: "top-right",
         autoClose: 5000,
@@ -55,7 +55,7 @@ export default function EditProfile(){
         });
     } catch (error) {
         console.log(error)
-        navigate("/profile");
+        navigate("/admin-profile");
         toast.error('Mahasiswa tidak berhasil diupdate!', {
           position: "top-right",
           autoClose: 5000,

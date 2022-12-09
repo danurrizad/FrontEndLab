@@ -31,7 +31,7 @@ function TambahProfil(){
             labNum,
             lab,
           });
-          navigate("/student");
+          navigate("/admin-student");
           toast.success('Mahasiswa berhasil ditambahkan!', {
             position: "top-right",
             autoClose: 5000,

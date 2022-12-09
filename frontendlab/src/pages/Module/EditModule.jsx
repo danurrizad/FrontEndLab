@@ -41,7 +41,7 @@ function EditModul() {
         dateStart,
         quota,
       });
-      navigate("/module");
+      navigate("/admin-module");
       toast.success('Modul berhasil diupdate!', {
         position: "top-right",
         autoClose: 5000,
@@ -54,7 +54,7 @@ function EditModul() {
         });
     } catch (error) {
         console.log(error)
-        navigate("/module");
+        navigate("/admin-module");
         toast.error('Modul tidak berhasil diupdate!', {
           position: "top-right",
           autoClose: 5000,

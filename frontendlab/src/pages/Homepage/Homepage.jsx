@@ -35,8 +35,9 @@ export default function Homepage(){
                     <div class="bg-[#388087] rounded-xl py-1"> 
                         <h1 class="font-bold text-white font-serif">Home</h1>
                     </div>
-                    <p>Hi, {name}</p>
-                    <button class="bg-slate-600 py-1 px-4 text-white hover:bg-slate-800 rounded-xl">Get Users</button>
+                    <div className="text-center">
+                      <h3>Selamat Datang Admin</h3>
+                    </div>
                 </div>
             </div>
         </div>
