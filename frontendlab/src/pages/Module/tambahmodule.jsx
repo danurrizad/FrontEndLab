@@ -20,7 +20,7 @@ function TambahModul(){
         const saveModule = async (e) => {
           e.preventDefault();
           try {
-            await axios.post("http://api-paw.bekisar.net/api/v1/modules", {
+            await axios.post("https://api-paw.bekisar.net/api/v1/modules", {
               title,
               batch,
               day,

@@ -76,7 +76,7 @@ const Module = () => {
 
     
       const getModule = async () => {
-        const response = await axios.get(`http://api-paw.bekisar.net/api/v1/modules`);
+        const response = await axios.get(`https://api-paw.bekisar.net/api/v1/modules`);
         setModule(response.data.data);
       }; 
 
@@ -99,7 +99,7 @@ const Module = () => {
 
       const deleteModule = async (_id) => {
         try {
-          await axios.delete(`http://api-paw.bekisar.net/api/v1/modules/${_id}`);
+          await axios.delete(`https://api-paw.bekisar.net/api/v1/modules/${_id}`);
           getModule();
         } catch (error) {
           console.log(error);

@@ -31,7 +31,7 @@ export default function EditProfile(){
   const saveStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://api-paw.bekisar.net/api/v1/students/${_id}`, {
+      await axios.put(`https://api-paw.bekisar.net/api/v1/students/${_id}`, {
         name,
         studentId,
         batch,
@@ -42,7 +42,7 @@ export default function EditProfile(){
         labNum,
         lab
       });
-      navigate("/profile");
+      navigate("/admin-profile");
       toast.success('Mahasiswa berhasil diupdate!', {
         position: "top-right",
         autoClose: 5000,
@@ -55,7 +55,7 @@ export default function EditProfile(){
         });
     } catch (error) {
         console.log(error)
-        navigate("/profile");
+        navigate("/admin-profile");
         toast.error('Mahasiswa tidak berhasil diupdate!', {
           position: "top-right",
           autoClose: 5000,
@@ -74,7 +74,7 @@ export default function EditProfile(){
   }, []);
 
   const getStudentById = async () => {
-    const response = await axios.get(`http://api-paw.bekisar.net/api/v1/student/${_id}`);
+    const response = await axios.get(`https://api-paw.bekisar.net/api/v1/student/${_id}`);
     setName(response.data.name);
     setStudentId(response.data.studentId);
     setBatch(response.data.batch);

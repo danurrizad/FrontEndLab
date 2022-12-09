@@ -21,7 +21,7 @@ function TambahProfil(){
     const saveProfile = async (e) => {
         e.preventDefault();
         try {
-          await axios.post("http://api-paw.bekisar.net/api/v1/auth/register", {
+          await axios.post("https://api-paw.bekisar.net/api/v1/auth/register", {
             name,
             studentId,
             batch,
@@ -31,7 +31,7 @@ function TambahProfil(){
             labNum,
             lab,
           });
-          navigate("/student");
+          navigate("/admin-student");
           toast.success('Mahasiswa berhasil ditambahkan!', {
             position: "top-right",
             autoClose: 5000,
