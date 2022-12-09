@@ -1,8 +1,22 @@
-import React from "react";
 import './Profil.css';
 import SidenavUsers from '../../components/SidenavUsers'
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function Profile(){
+const ProfileUsers = () => {
+    const [user, setUser] = useState([]);
+  
+    useEffect(() => {
+      getUser();
+    }, []);
+  
+    const getUser = async () => {
+      const response = await axios.get(`http://api-paw.bekisar.net/api/v1/auth/me`);
+      console.log(response.data.data);
+      //setUser(response.data.data);
+    };
+  
     return(
         <div>
             <div className="absolute">
@@ -35,34 +49,42 @@ export default function Profile(){
                                 <th className="w-1/6 px-3">No. HP</th>
                             </tr>
                         </thead>
-                        <tbody>
-                                <tr className="py-8 border-b-2 border-gray-300 text-xs">
-                                <td className="px-2 text-left break-words">
-                                    NAMA USER
-                                </td>
-                                <td className="text-left break-words">
-                                    NIM USER
-                                </td>
-                                <td className="px-2 text-left">
-                                    BATCH USER
-                                </td>
-                                <td className=" text-left break-words">
-                                    EMAIL USER
-                                </td>
-                                <td className="text-left break-words">
-                                    PASSWORD USER
-                                </td>
-                                <td className="px-3 text-left">
-                                    PHONE USER
-                                </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    </div>
+                        {(user).map((dat, index) => {
+                    return (
+                      <tbody key={index}>
+                        <tr className="py-8 border-b-2 border-gray-300 text-xs">
+                        <td className="px-2 text-left">
+                            {index+1}
+                          </td>
+                          <td className="px-2 text-left break-words">
+                            {dat.name}
+                          </td>
+                          <td className="text-left break-words">
+                            {dat.studentId}
+                          </td>
+                          <td className="px-2 text-left">
+                            {dat.batch}
+                          </td>
+                          <td className=" text-left break-words">
+                            {dat.email}
+                          </td>
+                          <td className="text-left break-words">
+                            {dat.password}
+                          </td>
+                          <td className="px-3 text-left">
+                            {dat.phone}
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
+                </table>
+                </div>
+                </div>
                 </div>
                 </div>
             </div>
         </div>
     )
 }
+export default ProfileUsers;
