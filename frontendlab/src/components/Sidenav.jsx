@@ -4,11 +4,14 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import {FaUserAlt, FaDiceD6, FaBars, FaHome, FaSignOutAlt} from "react-icons/fa"
 import LogoDashboard from "../assets/images/logo-dteti-dashboard.png"
 import axios from 'axios'
+import { useCookies } from "react-cookie";
+
 
 
 
 const Sidenav = ({children}) => {
     const[isOpen, setIsOpen] = useState(false);
+    const [cookies, removeCookie] = useCookies(["token"]);
     const toggle = () => setIsOpen (!isOpen);
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState({
@@ -35,7 +38,12 @@ const Sidenav = ({children}) => {
 
     const Logout = async() => {
         try{
-            await axios.post('http://api-paw.bekisar.net/api/v1/auth/logout');
+            await axios.post('http://api-paw.bekisar.net/api/v1/auth/logout' , {
+                headers: {
+                  authorization: `Bearer ${cookies.token}`,
+                },
+            });
+            removeCookie("token", { path: "/" });
             navigate("/login")
         } catch(error){
             console.log(error);
