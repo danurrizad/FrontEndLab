@@ -24,8 +24,12 @@ function Login(){
                 path: "/",
             });
 
-
-            navigate("/home");
+            if (email === "faizah@gmail.com" && password === "besty"){
+                navigate("/admin-home")
+            }
+            else {
+                navigate("/home");
+            }
     
         } catch (error) {
             if(error.response){

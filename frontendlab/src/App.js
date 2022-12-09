@@ -6,6 +6,7 @@ import Student from './pages/Profile/Student';
 import TambahProfil from './pages/Profile/TambahProfile'
 import EditProfile  from './pages/Profile/EditProfile';
 import Module from './pages/Module/Module';
+import AmbilModule from './pages/Module/AmbilModule'
 import TambahModul from './pages/Module/tambahmodule';
 import EditModul from './pages/Module/EditModule';
 import Schedule from './Schedule/Schedule';
@@ -41,6 +42,7 @@ const App = () => {
             <Route path='admin-module/editmodul/:_id' element={<EditModul />} />
             <Route path='/home' element={<HomepageUsers/>}/>
             <Route path='/module' element={<ModuleUsers/>}/>
+            <Route path='/module/ambilmodule' element={<AmbilModule/>}/>
             <Route path='/profile' element={<ProfileUsers/>}/>
           </Route>
         </Routes>
